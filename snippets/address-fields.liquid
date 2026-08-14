@@ -1,0 +1,175 @@
+{%- comment -%}
+  Renders the customer address form fields.
+  Accepts: form, prefix
+{%- endcomment -%}
+
+<div class="grid grid--2">
+  <div class="field">
+    <label class="field__label" for="AddressFirst-{{ prefix }}">{{ 'customer.addresses.first_name' | t }}</label>
+    <input
+      id="AddressFirst-{{ prefix }}"
+      class="input"
+      type="text"
+      name="address[first_name]"
+      value="{{ form.first_name }}"
+      autocomplete="given-name"
+    >
+  </div>
+  <div class="field">
+    <label class="field__label" for="AddressLast-{{ prefix }}">{{ 'customer.addresses.last_name' | t }}</label>
+    <input
+      id="AddressLast-{{ prefix }}"
+      class="input"
+      type="text"
+      name="address[last_name]"
+      value="{{ form.last_name }}"
+      autocomplete="family-name"
+    >
+  </div>
+</div>
+
+<div class="field">
+  <label class="field__label" for="AddressCompany-{{ prefix }}">{{ 'customer.addresses.company' | t }}</label>
+  <input
+    id="AddressCompany-{{ prefix }}"
+    class="input"
+    type="text"
+    name="address[company]"
+    value="{{ form.company }}"
+    autocomplete="organization"
+  >
+</div>
+
+<div class="field">
+  <label class="field__label" for="AddressLine1-{{ prefix }}">{{ 'customer.addresses.address1' | t }}</label>
+  <input
+    id="AddressLine1-{{ prefix }}"
+    class="input"
+    type="text"
+    name="address[address1]"
+    value="{{ form.address1 }}"
+    autocomplete="address-line1"
+  >
+</div>
+
+<div class="field">
+  <label class="field__label" for="AddressLine2-{{ prefix }}">{{ 'customer.addresses.address2' | t }}</label>
+  <input
+    id="AddressLine2-{{ prefix }}"
+    class="input"
+    type="text"
+    name="address[address2]"
+    value="{{ form.address2 }}"
+    autocomplete="address-line2"
+  >
+</div>
+
+<div class="grid grid--2">
+  <div class="field">
+    <label class="field__label" for="AddressCity-{{ prefix }}">{{ 'customer.addresses.city' | t }}</label>
+    <input
+      id="AddressCity-{{ prefix }}"
+      class="input"
+      type="text"
+      name="address[city]"
+      value="{{ form.city }}"
+      autocomplete="address-level2"
+    >
+  </div>
+  <div class="field">
+    <label class="field__label" for="AddressZip-{{ prefix }}">{{ 'customer.addresses.zip' | t }}</label>
+    <input
+      id="AddressZip-{{ prefix }}"
+      class="input"
+      type="text"
+      name="address[zip]"
+      value="{{ form.zip }}"
+      autocapitalize="characters"
+      autocomplete="postal-code"
+    >
+  </div>
+</div>
+
+<div class="grid grid--2">
+  <div class="field">
+    <label class="field__label" for="AddressCountry-{{ prefix }}">{{ 'customer.addresses.country' | t }}</label>
+    <select
+      id="AddressCountry-{{ prefix }}"
+      class="select"
+      name="address[country]"
+      data-address-country
+      data-default="{{ form.country }}"
+      autocomplete="country"
+    >
+      {{ all_country_option_tags }}
+    </select>
+  </div>
+  <div class="field" id="AddressProvinceWrapper-{{ prefix }}" style="display: none;">
+    <label class="field__label" for="AddressProvince-{{ prefix }}">{{ 'customer.addresses.province' | t }}</label>
+    <select
+      id="AddressProvince-{{ prefix }}"
+      class="select"
+      name="address[province]"
+      data-address-province
+      data-default="{{ form.province }}"
+      autocomplete="address-level1"
+    ></select>
+  </div>
+</div>
+
+<div class="field">
+  <label class="field__label" for="AddressPhone-{{ prefix }}">{{ 'customer.addresses.phone' | t }}</label>
+  <input
+    id="AddressPhone-{{ prefix }}"
+    class="input"
+    type="tel"
+    name="address[phone]"
+    value="{{ form.phone }}"
+    autocomplete="tel"
+  >
+</div>
+
+<label class="row" style="gap: 0.9rem;">
+  {{ form.set_as_default_checkbox }}
+  <span class="text-sm">{{ 'customer.addresses.set_default' | t }}</span>
+</label>
+
+<script>
+  // Populate the province list from the selected country's data attribute.
+  (function () {
+    var country = document.getElementById('AddressCountry-{{ prefix }}');
+    var provinceWrapper = document.getElementById('AddressProvinceWrapper-{{ prefix }}');
+    var province = document.getElementById('AddressProvince-{{ prefix }}');
+    if (!country || !province || !provinceWrapper) return;
+
+    function sync() {
+      var option = country.options[country.selectedIndex];
+      var provinces = [];
+      try {
+        provinces = JSON.parse(option.getAttribute('data-provinces') || '[]');
+      } catch (e) {
+        provinces = [];
+      }
+
+      province.innerHTML = '';
+      if (!provinces.length) {
+        provinceWrapper.style.display = 'none';
+        return;
+      }
+
+      provinces.forEach(function (pair) {
+        var opt = document.createElement('option');
+        opt.value = pair[0];
+        opt.textContent = pair[1];
+        province.appendChild(opt);
+      });
+
+      if (province.dataset.default) province.value = province.dataset.default;
+      provinceWrapper.style.display = '';
+    }
+
+    if (country.dataset.default) country.value = country.dataset.default;
+    country.addEventListener('change', sync);
+    sync();
+  })();
+</script>

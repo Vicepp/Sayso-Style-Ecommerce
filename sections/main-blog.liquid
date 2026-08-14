@@ -1,0 +1,111 @@
+{%- paginate blog.articles by section.settings.posts_per_page -%}
+  <section class="section" data-section-id="{{ section.id }}">
+    <div class="page-width">
+      <div class="section-head section-head--center" data-reveal="{{ settings.anim_reveal_style }}">
+        <div class="section-head__text">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+          <h1>{{ blog.title | default: 'sections.blog.title' | t }}</h1>
+          {%- if section.settings.text != blank -%}
+            <div class="rte text-muted" style="margin-top: 1rem;">{{ section.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+
+      {%- if section.settings.show_tags and blog.all_tags.size > 0 -%}
+        <div class="tag-list" style="justify-content: center; margin-bottom: 4rem;" data-reveal="fade">
+          <a class="tag{% unless current_tags %} is-active{% endunless %}" href="{{ blog.url }}">
+            {{ 'sections.blog.all_topics' | t }}
+          </a>
+          {%- for tag in blog.all_tags -%}
+            <a
+              class="tag{% if current_tags contains tag %} is-active{% endif %}"
+              href="{{ blog.url }}/tagged/{{ tag | handle }}"
+            >
+              {{ tag }}
+            </a>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+
+      {%- if blog.articles.size > 0 -%}
+        {%- if section.settings.feature_first and paginate.current_page == 1 -%}
+          {%- assign featured = blog.articles.first -%}
+          <a href="{{ featured.url }}" class="split" style="margin-bottom: 5.6rem;" data-reveal="{{ settings.anim_reveal_style }}">
+            <div class="split__media media media--wide zoom-media">
+              {% render 'media-fallback',
+                image: featured.image,
+                asset: 'blog-1.jpg',
+                placeholder: 'blog-apparel-1',
+                alt: featured.title,
+                loading: 'eager',
+                widths: '600, 900, 1200, 1600',
+                sizes: '(min-width: 750px) 50vw, 100vw'
+              %}
+            </div>
+            <div class="split__content">
+              <span class="eyebrow">{{ featured.published_at | date: '%d %B %Y' }}</span>
+              <h2>{{ featured.title }}</h2>
+              <p class="text-muted text-lg">{{ featured.excerpt_or_content | strip_html | truncatewords: 40 }}</p>
+              <span class="link-arrow">
+                {{ 'general.read_more' | t }}
+                {% render 'icon', name: 'arrow-right' %}
+              </span>
+            </div>
+          </a>
+        {%- endif -%}
+
+        <div class="grid grid--{{ section.settings.columns }}" data-reveal-group>
+          {%- for article in blog.articles -%}
+            {%- if section.settings.feature_first and paginate.current_page == 1 and forloop.first -%}
+              {%- continue -%}
+            {%- endif -%}
+            {% render 'article-card',
+              article: article,
+              show_excerpt: section.settings.show_excerpt,
+              index: forloop.index0
+            %}
+          {%- endfor -%}
+        </div>
+
+        {% render 'pagination', paginate: paginate %}
+      {%- else -%}
+        <div class="empty-state">
+          <h2 class="h4">{{ 'sections.blog.no_articles' | t }}</h2>
+          <a class="btn btn--secondary" href="{{ routes.root_url }}">{{ 'general.continue_shopping' | t }}</a>
+        </div>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Blog",
+  "class": "main-blog-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Journal" },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Notes on fabric, fit, repair, and the people who make our clothes.</p>"
+    },
+    { "type": "range", "id": "posts_per_page", "min": 3, "max": 24, "step": 3, "label": "Posts per page", "default": 9 },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns on desktop",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" }
+      ],
+      "default": "3"
+    },
+    { "type": "checkbox", "id": "feature_first", "label": "Feature the newest post", "default": true },
+    { "type": "checkbox", "id": "show_excerpt", "label": "Show excerpts", "default": true },
+    { "type": "checkbox", "id": "show_tags", "label": "Show topic filters", "default": true }
+  ]
+}
+{% endschema %}

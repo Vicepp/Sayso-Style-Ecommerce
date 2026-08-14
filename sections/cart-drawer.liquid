@@ -1,0 +1,19 @@
+{%- comment -%}
+  Rendered by cart.js through the Section Rendering API so the drawer can be
+  refreshed without a page load. Not shown directly in the theme editor.
+{%- endcomment -%}
+
+<div id="CartDrawerContents">
+  {% render 'cart-drawer-contents' %}
+</div>
+
+<div id="CartDrawerFooter">
+  {% render 'cart-drawer-footer' %}
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,36 @@
+{%- comment -%}Renders one testimonial. Accepts: block{%- endcomment -%}
+
+<figure class="quote" data-reveal="{{ settings.anim_reveal_style }}" {{ block.shopify_attributes }}>
+  {%- if block.settings.rating > 0 -%}
+    <div
+      class="stars"
+      role="img"
+      aria-label="{{ 'accessibility.star_rating' | t: rating: block.settings.rating, max: 5 }}"
+    >
+      {%- for i in (1..block.settings.rating) -%}
+        {% render 'icon', name: 'star' %}
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <span class="quote__mark" aria-hidden="true">&ldquo;</span>
+  {%- endif -%}
+
+  <blockquote class="quote__text">{{ block.settings.text }}</blockquote>
+
+  <figcaption class="stack" style="gap: 0.8rem; align-items: center;">
+    {%- if block.settings.image != blank -%}
+      <img
+        src="{{ block.settings.image | image_url: width: 120 }}"
+        alt="{{ block.settings.author | escape }}"
+        width="56"
+        height="56"
+        loading="lazy"
+        style="width: 5.6rem; height: 5.6rem; border-radius: 50%; object-fit: cover;"
+      >
+    {%- endif -%}
+    <span class="quote__author">
+      {{- block.settings.author -}}
+      {%- if block.settings.detail != blank %} &middot; {{ block.settings.detail }}{% endif -%}
+    </span>
+  </figcaption>
+</figure>

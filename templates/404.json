@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-404",
+      "settings": {
+        "heading": "This page has wandered off",
+        "text": "<p>The link may be old, or the piece may have sold out. Try a search, or start again from the beginning.</p>",
+        "suggestions_heading": "You might like"
+      }
+    }
+  },
+  "order": ["main"]
+}

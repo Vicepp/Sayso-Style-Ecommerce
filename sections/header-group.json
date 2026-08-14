@@ -1,0 +1,51 @@
+{
+  "name": "Header",
+  "type": "header",
+  "sections": {
+    "announcement": {
+      "type": "announcement-bar",
+      "blocks": {
+        "a1": {
+          "type": "announcement",
+          "settings": {
+            "text": "Complimentary shipping on orders over $150",
+            "link": ""
+          }
+        },
+        "a2": {
+          "type": "announcement",
+          "settings": {
+            "text": "New season knitwear — now in store",
+            "link": "shopify://collections/all"
+          }
+        },
+        "a3": {
+          "type": "announcement",
+          "settings": {
+            "text": "30 day returns, no questions asked",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["a1", "a2", "a3"],
+      "settings": {
+        "color_scheme": "dark",
+        "rotate": true,
+        "speed": 5
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "menu": "main-menu",
+        "layout": "center",
+        "sticky": true,
+        "transparent_on_home": true,
+        "show_search": true,
+        "show_account": true,
+        "search_suggestions": "Knitwear, Denim, Outerwear, Linen"
+      }
+    }
+  },
+  "order": ["announcement", "header"]
+}

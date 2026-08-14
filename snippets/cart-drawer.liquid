@@ -1,0 +1,26 @@
+{%- comment -%}Slide-out bag. Contents are re-rendered by cart.js via the cart-drawer section.{%- endcomment -%}
+
+<drawer-element id="CartDrawer">
+  <aside
+    class="drawer drawer--right cart-drawer"
+    role="dialog"
+    aria-modal="true"
+    aria-label="{{ 'sections.cart.title' | t }}"
+    aria-hidden="true"
+  >
+    <header class="drawer__head">
+      <h2 class="drawer__title">{{ 'sections.cart.title' | t }}</h2>
+      <button class="icon-btn" type="button" data-drawer-close aria-label="{{ 'general.close' | t }}">
+        {% render 'icon', name: 'close' %}
+      </button>
+    </header>
+
+    <div class="cart-drawer__body" id="CartDrawerContents" data-drawer-stagger>
+      {% render 'cart-drawer-contents' %}
+    </div>
+
+    <div id="CartDrawerFooter">
+      {% render 'cart-drawer-footer' %}
+    </div>
+  </aside>
+</drawer-element>

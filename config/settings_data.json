@@ -1,0 +1,128 @@
+{
+  "current": {
+    "logo_width": 140,
+    "brand_tagline": "Considered clothing, made to last.",
+    "color_background": "#faf7f2",
+    "color_foreground": "#171512",
+    "color_muted": "#756e64",
+    "color_line": "#e3dcd2",
+    "color_accent": "#9a6f4e",
+    "color_dark_background": "#171512",
+    "color_dark_foreground": "#f6f1ea",
+    "color_dark_muted": "#a89f93",
+    "color_dark_line": "#332e28",
+    "color_sale": "#9c2f2f",
+    "color_success": "#2f6b46",
+    "font_heading": "playfair_display_n4",
+    "font_body": "assistant_n4",
+    "font_body_scale": 100,
+    "font_heading_scale": 100,
+    "heading_letter_spacing": -1,
+    "uppercase_labels": true,
+    "page_width": 1500,
+    "spacing_sections": 0,
+    "corner_radius": 0,
+    "button_style": "square",
+    "anim_reveal": true,
+    "anim_reveal_style": "rise",
+    "anim_speed": 700,
+    "anim_page_transition": true,
+    "anim_image_zoom": true,
+    "anim_sticky_header": true,
+    "anim_parallax": true,
+    "card_image_ratio": "portrait",
+    "card_hover_image": true,
+    "card_show_vendor": false,
+    "card_show_swatches": true,
+    "card_quick_add": true,
+    "cart_type": "drawer",
+    "cart_show_note": true,
+    "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
+    "free_shipping_bar": true,
+    "free_shipping_threshold": 150,
+    "social_instagram": "https://instagram.com/saysostyle",
+    "social_tiktok": "https://tiktok.com/@saysostyle",
+    "social_facebook": "",
+    "social_pinterest": "https://pinterest.com/saysostyle",
+    "social_youtube": "",
+    "predictive_search": true,
+    "sections": {
+      "announcement": {
+        "type": "announcement-bar",
+        "blocks": {
+          "a1": {
+            "type": "announcement",
+            "settings": {
+              "text": "Complimentary shipping on orders over $150",
+              "link": ""
+            }
+          },
+          "a2": {
+            "type": "announcement",
+            "settings": {
+              "text": "New season knitwear — now in store",
+              "link": "/collections/all"
+            }
+          },
+          "a3": {
+            "type": "announcement",
+            "settings": {
+              "text": "30 day returns, no questions asked",
+              "link": ""
+            }
+          }
+        },
+        "block_order": ["a1", "a2", "a3"],
+        "settings": {
+          "color_scheme": "dark",
+          "rotate": true,
+          "speed": 5
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "layout": "center",
+          "sticky": true,
+          "transparent_on_home": true,
+          "show_search": true,
+          "show_account": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "f1": {
+            "type": "menu",
+            "settings": { "heading": "Shop", "menu": "footer" }
+          },
+          "f2": {
+            "type": "text",
+            "settings": {
+              "heading": "The house",
+              "text": "<p>Sayso Style is a small studio making quiet, durable clothing in limited runs. Everything is cut in low volumes from deadstock and certified natural fibres.</p>"
+            }
+          },
+          "f3": {
+            "type": "newsletter",
+            "settings": {
+              "heading": "Letters",
+              "text": "<p>Occasional notes on new work, restocks and studio sales.</p>"
+            }
+          }
+        },
+        "block_order": ["f1", "f2", "f3"],
+        "settings": {
+          "color_scheme": "dark",
+          "show_social": true,
+          "show_payment_icons": true,
+          "show_locale_selector": true,
+          "copyright_text": "Sayso Style"
+        }
+      }
+    },
+    "content_for_index": []
+  },
+  "platform_customizations": {}
+}

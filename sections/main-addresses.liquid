@@ -1,0 +1,121 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="section-head">
+      <div class="section-head__text">
+        <span class="eyebrow">{{ 'customer.account.title' | t }}</span>
+        <h1 class="h2">{{ 'customer.addresses.title' | t }}</h1>
+      </div>
+      <a class="link-arrow" href="{{ routes.account_url }}">
+        {% render 'icon', name: 'arrow-left' %}
+        {{ 'customer.account.title' | t }}
+      </a>
+    </div>
+
+    <div class="account-layout">
+      <nav class="account-nav" aria-label="{{ 'customer.account.title' | t }}">
+        <a href="{{ routes.account_url }}">{{ 'customer.account.orders' | t }}</a>
+        <a class="is-active" href="{{ routes.account_addresses_url }}">{{ 'customer.addresses.title' | t }}</a>
+        <a href="{{ routes.account_logout_url }}">{{ 'customer.account.log_out' | t }}</a>
+      </nav>
+
+      <div>
+        <button class="btn" type="button" data-address-toggle="AddressNew">
+          {{ 'customer.addresses.add_new' | t }}
+        </button>
+
+        <div id="AddressNew" hidden style="margin-top: 2.4rem; padding: 2.4rem; border: 1px solid var(--c-line); border-radius: var(--radius);">
+          {%- form 'customer_address', customer.new_address, class: 'stack' -%}
+            <h2 class="h5">{{ 'customer.addresses.add_new' | t }}</h2>
+            {% render 'address-fields', form: form, prefix: 'New' %}
+            <div class="row">
+              <button class="btn" type="submit">{{ 'customer.addresses.save' | t }}</button>
+              <button class="btn btn--ghost" type="button" data-address-toggle="AddressNew">
+                {{ 'customer.addresses.cancel' | t }}
+              </button>
+            </div>
+          {%- endform -%}
+        </div>
+
+        <div class="grid grid--2" style="margin-top: 3.2rem;" data-reveal-group>
+          {%- for address in customer.addresses -%}
+            <div
+              style="padding: 2.4rem; border: 1px solid var(--c-line); border-radius: var(--radius);"
+              data-reveal="{{ settings.anim_reveal_style }}"
+            >
+              {%- if address == customer.default_address -%}
+                <span class="badge" style="margin-bottom: 1.2rem; display: inline-block;">
+                  {{ 'customer.addresses.default' | t }}
+                </span>
+              {%- endif -%}
+
+              <div class="rte text-sm">{{ address | format_address }}</div>
+
+              <div class="row" style="margin-top: 1.6rem;">
+                <button class="link-underline text-sm" type="button" data-address-toggle="AddressEdit-{{ address.id }}">
+                  {{ 'customer.addresses.edit' | t }}
+                </button>
+                <span class="text-muted">&middot;</span>
+                <button
+                  class="link-underline text-sm"
+                  type="button"
+                  data-address-delete
+                  data-url="{{ address.url }}"
+                  data-confirm="{{ 'customer.addresses.delete_confirm' | t }}"
+                >
+                  {{ 'customer.addresses.delete' | t }}
+                </button>
+              </div>
+
+              <div id="AddressEdit-{{ address.id }}" hidden style="margin-top: 2rem;">
+                {%- form 'customer_address', address, class: 'stack' -%}
+                  {% render 'address-fields', form: form, prefix: address.id %}
+                  <div class="row">
+                    <button class="btn btn--small" type="submit">{{ 'customer.addresses.save' | t }}</button>
+                    <button class="btn btn--ghost" type="button" data-address-toggle="AddressEdit-{{ address.id }}">
+                      {{ 'customer.addresses.cancel' | t }}
+                    </button>
+                  </div>
+                {%- endform -%}
+              </div>
+            </div>
+          {%- else -%}
+            <p class="text-muted">{{ 'customer.addresses.none' | t }}</p>
+          {%- endfor -%}
+        </div>
+
+        {%- paginate customer.addresses by 6 -%}
+          {% render 'pagination', paginate: paginate %}
+        {%- endpaginate -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('click', function (event) {
+    var toggle = event.target.closest('[data-address-toggle]');
+    if (toggle) {
+      var panel = document.getElementById(toggle.dataset.addressToggle);
+      if (panel) panel.hidden = !panel.hidden;
+      return;
+    }
+
+    var remove = event.target.closest('[data-address-delete]');
+    if (remove && window.confirm(remove.dataset.confirm)) {
+      var form = document.createElement('form');
+      form.method = 'post';
+      form.action = remove.dataset.url;
+      form.innerHTML = '<input type="hidden" name="_method" value="delete">';
+      document.body.appendChild(form);
+      form.submit();
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Addresses",
+  "class": "main-addresses-section",
+  "settings": []
+}
+{% endschema %}

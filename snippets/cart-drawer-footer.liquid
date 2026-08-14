@@ -1,0 +1,31 @@
+{%- if cart.item_count > 0 -%}
+  <div class="cart-drawer__foot">
+    {%- if cart.cart_level_discount_applications.size > 0 -%}
+      {%- for discount in cart.cart_level_discount_applications -%}
+        <div class="cart-totals__row text-sm" style="color: var(--c-success);">
+          <span>{{ discount.title }}</span>
+          <span>−{{ discount.total_allocated_amount | money }}</span>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+
+    <div class="cart-totals">
+      <div class="cart-totals__row cart-totals__row--total">
+        <span>{{ 'sections.cart.subtotal' | t }}</span>
+        <span>{{ cart.total_price | money_with_currency }}</span>
+      </div>
+    </div>
+
+    {%- if settings.cart_footer_text != blank -%}
+      <div class="rte text-sm text-muted">{{ settings.cart_footer_text }}</div>
+    {%- endif -%}
+
+    <form action="{{ routes.cart_url }}" method="post" novalidate>
+      <button type="submit" name="checkout" class="btn btn--full" data-checkout>
+        {{ 'sections.cart.checkout' | t }}
+      </button>
+    </form>
+
+    <a class="btn btn--secondary btn--full" href="{{ routes.cart_url }}">{{ 'sections.cart.view_cart' | t }}</a>
+  </div>
+{%- endif -%}

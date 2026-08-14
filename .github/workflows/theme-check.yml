@@ -1,0 +1,36 @@
+name: Theme check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  lint:
+    name: Lint Liquid and JSON
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the theme
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Shopify CLI
+        run: npm install -g @shopify/cli@latest
+
+      - name: Run Theme Check
+        run: shopify theme check --fail-level error
+
+      - name: Validate JSON templates and settings
+        run: |
+          for file in $(find templates config locales sections -name '*.json'); do
+            node -e "JSON.parse(require('fs').readFileSync('$file','utf8'))" \
+              || { echo "Invalid JSON: $file"; exit 1; }
+          done
+          echo "All JSON files parsed cleanly."

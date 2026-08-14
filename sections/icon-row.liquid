@@ -1,0 +1,107 @@
+<section
+  class="section--flush scheme-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="page-width">
+    <div class="grid grid--{{ section.blocks.size | at_most: 4 }}" data-reveal-group>
+      {%- for block in section.blocks -%}
+        <div
+          class="row icon-row__item"
+          data-reveal="{{ settings.anim_reveal_style }}"
+          {{ block.shopify_attributes }}
+        >
+          <span class="icon-row__icon">
+            {% render 'icon', name: block.settings.icon %}
+          </span>
+          <span class="stack icon-row__copy">
+            <span class="icon-row__heading">{{ block.settings.heading }}</span>
+            <span class="text-sm text-muted">{{ block.settings.text }}</span>
+          </span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  #shopify-section-{{ section.id }} .icon-row__item {
+    gap: 1.4rem;
+    align-items: flex-start;
+  }
+  #shopify-section-{{ section.id }} .icon-row__icon {
+    flex-shrink: 0;
+    width: 2.6rem;
+    color: var(--c-accent);
+  }
+  #shopify-section-{{ section.id }} .icon-row__icon svg {
+    width: 2.6rem;
+    height: 2.6rem;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 1.2;
+  }
+  #shopify-section-{{ section.id }} .icon-row__copy {
+    gap: 0.3rem;
+  }
+  #shopify-section-{{ section.id }} .icon-row__heading {
+    font-size: 1.45rem;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Icon row",
+  "class": "icon-row-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "accent", "label": "Accent" }
+      ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Top padding", "default": 48 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 120, "step": 4, "unit": "px", "label": "Bottom padding", "default": 48 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "truck", "label": "Delivery" },
+            { "value": "return", "label": "Returns" },
+            { "value": "leaf", "label": "Sustainability" },
+            { "value": "shield", "label": "Guarantee" },
+            { "value": "ruler", "label": "Fit" },
+            { "value": "mail", "label": "Contact" },
+            { "value": "check", "label": "Check" }
+          ],
+          "default": "truck"
+        },
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Carbon-neutral delivery" },
+        { "type": "text", "id": "text", "label": "Text", "default": "Complimentary over $150, worldwide." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Icon row",
+      "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }, { "type": "item" }]
+    }
+  ],
+  "enabled_on": {
+    "groups": ["footer"],
+    "templates": ["*"]
+  }
+}
+{% endschema %}

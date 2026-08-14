@@ -1,0 +1,75 @@
+{%- comment -%}
+  Renders one top-level nav entry, with a mega menu when it has children.
+  Accepts: link, section
+{%- endcomment -%}
+
+{%- liquid
+  assign has_children = false
+  if link.links.size > 0
+    assign has_children = true
+  endif
+-%}
+
+<div class="nav__item{% if has_children %} has-mega{% endif %}">
+  <a
+    class="nav__link hover-line{% if link.active or link.child_active %} is-active{% endif %}"
+    href="{{ link.url }}"
+    {% if link.current %}
+      aria-current="page"
+    {% endif %}
+  >
+    {{ link.title }}
+    {%- if has_children -%}
+      {% render 'icon', name: 'chevron-down' %}
+    {%- endif -%}
+  </a>
+
+  {%- if has_children -%}
+    {%- assign is_wide = false -%}
+    {%- for child in link.links -%}
+      {%- if child.links.size > 0 -%}
+        {%- assign is_wide = true -%}
+        {%- break -%}
+      {%- endif -%}
+    {%- endfor -%}
+
+    <div class="mega-menu{% if is_wide %} mega-menu--wide{% endif %}">
+      {%- if is_wide -%}
+        {%- for child in link.links -%}
+          <div>
+            <p class="mega-menu__heading">{{ child.title }}</p>
+            {%- if child.links.size > 0 -%}
+              {%- for grandchild in child.links -%}
+                <a class="mega-menu__link" href="{{ grandchild.url }}">{{ grandchild.title }}</a>
+              {%- endfor -%}
+            {%- else -%}
+              <a class="mega-menu__link" href="{{ child.url }}">{{ 'general.view_all' | t }}</a>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+
+        {%- assign promo_handle = link.title | handle -%}
+        {%- assign promo_collection = collections[promo_handle] -%}
+        {%- if promo_collection != blank and promo_collection.featured_image -%}
+          <div class="mega-menu__promo">
+            <a href="{{ promo_collection.url }}" class="zoom-media media media--portrait" style="display:block;">
+              {{
+                promo_collection.featured_image
+                | image_url: width: 500
+                | image_tag: loading: 'lazy', alt: promo_collection.title
+              }}
+            </a>
+            <a class="link-arrow" href="{{ promo_collection.url }}" style="margin-top: 1rem;">
+              {{ promo_collection.title }}
+              {% render 'icon', name: 'arrow-right' %}
+            </a>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        {%- for child in link.links -%}
+          <a class="mega-menu__link" href="{{ child.url }}">{{ child.title }}</a>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+</div>

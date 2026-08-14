@@ -1,0 +1,88 @@
+{%- liquid
+  assign radius = settings.corner_radius | append: 'px'
+  case settings.button_style
+    when 'pill'
+      assign btn_radius = '999px'
+    when 'soft'
+      assign btn_radius = '6px'
+    else
+      assign btn_radius = '0px'
+  endcase
+-%}
+<style>
+  :root {
+    --font-body: {{ settings.font_body.family }}, {{ settings.font_body.fallback_families }};
+    --font-body-weight: {{ settings.font_body.weight }};
+    --font-body-weight-bold: {{ settings.font_body.weight | plus: 300 | at_most: 1000 }};
+    --font-body-style: {{ settings.font_body.style }};
+    --font-heading: {{ settings.font_heading.family }}, {{ settings.font_heading.fallback_families }};
+    --font-heading-weight: {{ settings.font_heading.weight }};
+    --font-heading-style: {{ settings.font_heading.style }};
+
+    --body-scale: {{ settings.font_body_scale | divided_by: 100.0 }};
+    --heading-scale: {{ settings.font_heading_scale | divided_by: 100.0 }};
+    --heading-tracking: {{ settings.heading_letter_spacing }}px;
+
+    --page-width: {{ settings.page_width }}px;
+    --section-gap: {{ settings.spacing_sections }}px;
+    --radius: {{ radius }};
+    --btn-radius: {{ btn_radius }};
+
+    --c-bg: {{ settings.color_background }};
+    --c-fg: {{ settings.color_foreground }};
+    --c-muted: {{ settings.color_muted }};
+    --c-line: {{ settings.color_line }};
+    --c-accent: {{ settings.color_accent }};
+    --c-sale: {{ settings.color_sale }};
+    --c-success: {{ settings.color_success }};
+
+    --c-bg-rgb: {{ settings.color_background.rgb }};
+    --c-fg-rgb: {{ settings.color_foreground.rgb }};
+
+    --c-dark-bg: {{ settings.color_dark_background }};
+    --c-dark-fg: {{ settings.color_dark_foreground }};
+    --c-dark-muted: {{ settings.color_dark_muted }};
+    --c-dark-line: {{ settings.color_dark_line }};
+
+    --duration: {{ settings.anim_speed }}ms;
+    --duration-fast: {{ settings.anim_speed | divided_by: 3 }}ms;
+    --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    --header-height: 72px;
+  }
+
+  .scheme-light {
+    --c-bg: {{ settings.color_background }};
+    --c-fg: {{ settings.color_foreground }};
+    --c-muted: {{ settings.color_muted }};
+    --c-line: {{ settings.color_line }};
+    --c-bg-rgb: {{ settings.color_background.rgb }};
+    --c-fg-rgb: {{ settings.color_foreground.rgb }};
+  }
+
+  .scheme-dark {
+    --c-bg: {{ settings.color_dark_background }};
+    --c-fg: {{ settings.color_dark_foreground }};
+    --c-muted: {{ settings.color_dark_muted }};
+    --c-line: {{ settings.color_dark_line }};
+    --c-bg-rgb: {{ settings.color_dark_background.rgb }};
+    --c-fg-rgb: {{ settings.color_dark_foreground.rgb }};
+  }
+
+  .scheme-accent {
+    --c-bg: {{ settings.color_accent }};
+    --c-fg: #ffffff;
+    --c-muted: rgba(255, 255, 255, 0.72);
+    --c-line: rgba(255, 255, 255, 0.24);
+    --c-bg-rgb: {{ settings.color_accent.rgb }};
+    --c-fg-rgb: 255, 255, 255;
+  }
+
+  .scheme-light,
+  .scheme-dark,
+  .scheme-accent {
+    background-color: var(--c-bg);
+    color: var(--c-fg);
+  }
+</style>

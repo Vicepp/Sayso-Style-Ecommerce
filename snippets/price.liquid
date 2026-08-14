@@ -1,0 +1,49 @@
+{%- comment -%}
+  Renders a price block.
+  Accepts: product (or variant), use_variant, show_badges, price_class
+{%- endcomment -%}
+
+{%- liquid
+  if use_variant and product.selected_or_first_available_variant
+    assign target = product.selected_or_first_available_variant
+    assign compare_at = target.compare_at_price
+  else
+    assign target = product
+    assign compare_at = product.compare_at_price_max
+  endif
+
+  assign money_price = target.price | money
+  assign on_sale = false
+  if compare_at > target.price
+    assign on_sale = true
+  endif
+
+  assign show_from = false
+  if product.price_varies and use_variant != true
+    assign show_from = true
+  endif
+-%}
+
+<div class="price{% if on_sale %} price--on-sale{% endif %}{% if price_class %} {{ price_class }}{% endif %}">
+  {%- if target.price == 0 and product.price_varies == false -%}
+    <span class="price__now">{{ 'products.product.free' | t | default: 'Free' }}</span>
+  {%- else -%}
+    <span class="price__now">
+      {%- if show_from -%}
+        {{ 'products.product.from_price' | t: price: money_price }}
+      {%- else -%}
+        {{ money_price }}
+      {%- endif -%}
+    </span>
+  {%- endif -%}
+
+  {%- if on_sale -%}
+    <s class="price__was">{{ compare_at | money }}</s>
+  {%- endif -%}
+
+  {%- if target.unit_price_measurement -%}
+    <span class="price__unit">
+      {{ target.unit_price | money }} / {{ target.unit_price_measurement.reference_value }}{{ target.unit_price_measurement.reference_unit }}
+    </span>
+  {%- endif -%}
+</div>

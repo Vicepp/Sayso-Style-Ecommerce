@@ -1,0 +1,40 @@
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "settings": {
+        "show_image": true,
+        "show_description": true,
+        "show_breadcrumb": true,
+        "heading_size": "h1",
+        "color_scheme": "light"
+      }
+    },
+    "grid": {
+      "type": "main-collection-product-grid",
+      "settings": {
+        "products_per_page": 24,
+        "columns": "4",
+        "image_ratio": "portrait",
+        "show_sort": true,
+        "show_quick_add": true,
+        "pagination_style": "load_more"
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Letters",
+        "heading": "First to know",
+        "heading_size": "h2",
+        "text": "<p>Restock alerts and new arrivals, roughly once a month.</p>",
+        "button_label": "Sign up",
+        "disclaimer": "Unsubscribe any time.",
+        "color_scheme": "light",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["banner", "grid", "newsletter"]
+}

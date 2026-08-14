@@ -1,0 +1,55 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="auth-card">
+      <h1 class="h3 text-center" data-reveal="rise">{{ 'customer.activate_account.title' | t }}</h1>
+      <p class="text-muted text-center" style="margin-block: 1rem 2.4rem;">
+        {{ 'customer.activate_account.subtext' | t }}
+      </p>
+
+      {%- form 'activate_customer_password', class: 'stack' -%}
+        {%- if form.errors -%}
+          <div class="form__message form__message--error">{{ form.errors | default_errors }}</div>
+        {%- endif -%}
+
+        <div class="field">
+          <label class="field__label" for="ActivatePassword">{{ 'customer.activate_account.password' | t }}</label>
+          <input
+            id="ActivatePassword"
+            class="input"
+            type="password"
+            name="customer[password]"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="ActivatePasswordConfirm">
+            {{ 'customer.activate_account.password_confirm' | t }}
+          </label>
+          <input
+            id="ActivatePasswordConfirm"
+            class="input"
+            type="password"
+            name="customer[password_confirmation]"
+            autocomplete="new-password"
+            required
+          >
+        </div>
+
+        <button class="btn btn--full" type="submit">{{ 'customer.activate_account.submit' | t }}</button>
+        <button class="btn btn--ghost" type="submit" name="decline">
+          {{ 'customer.activate_account.decline' | t }}
+        </button>
+      {%- endform -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Activate account",
+  "class": "main-activate-account-section",
+  "settings": []
+}
+{% endschema %}

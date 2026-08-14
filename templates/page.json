@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "heading_size": "h1",
+        "align": "center",
+        "narrow": true,
+        "large_text": false
+      }
+    }
+  },
+  "order": ["main"]
+}

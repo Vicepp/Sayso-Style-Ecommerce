@@ -1,0 +1,37 @@
+{%- comment -%}
+  Renders a section image with three levels of fallback, so no page is ever
+  blank:
+
+    1. the image the merchant picked in the theme editor
+    2. a stock placeholder shipped in /assets (see scripts/fetch-stock-images.ps1)
+    3. Shopify's built-in placeholder SVG
+
+  Accepts: image, asset, placeholder, alt, widths, sizes, loading, width, height
+{%- endcomment -%}
+
+{%- liquid
+  assign img_widths = widths | default: '400, 600, 900, 1200, 1600, 2000'
+  assign img_sizes = sizes | default: '100vw'
+  assign img_loading = loading | default: 'lazy'
+  assign img_alt = alt | default: ''
+  assign img_w = width | default: 1600
+  assign img_h = height | default: 2000
+-%}
+
+{%- if image != blank -%}
+  {{
+    image
+    | image_url: width: 2400
+    | image_tag: loading: img_loading, widths: img_widths, sizes: img_sizes, alt: img_alt
+  }}
+{%- elsif asset != blank -%}
+  <img
+    src="{{ asset | asset_url }}"
+    alt="{{ img_alt | escape }}"
+    loading="{{ img_loading }}"
+    width="{{ img_w }}"
+    height="{{ img_h }}"
+  >
+{%- else -%}
+  {{ placeholder | default: 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+{%- endif -%}

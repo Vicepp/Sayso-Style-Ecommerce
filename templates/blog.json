@@ -1,0 +1,30 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "settings": {
+        "eyebrow": "Journal",
+        "text": "<p>Notes on fabric, fit, repair, and the people who make our clothes.</p>",
+        "posts_per_page": 9,
+        "columns": "3",
+        "feature_first": true,
+        "show_excerpt": true,
+        "show_tags": true
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Letters",
+        "heading": "Get the next one by email",
+        "heading_size": "h2",
+        "text": "<p>One thoughtful note a month. Nothing else.</p>",
+        "button_label": "Sign up",
+        "color_scheme": "light",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["main", "newsletter"]
+}

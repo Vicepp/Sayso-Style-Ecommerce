@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-register",
+      "settings": {
+        "show_newsletter_optin": true,
+        "newsletter_text": "Send me occasional notes about new work and restocks."
+      }
+    }
+  },
+  "order": ["main"]
+}

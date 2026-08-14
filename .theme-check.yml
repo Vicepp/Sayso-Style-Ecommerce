@@ -1,0 +1,18 @@
+extends: :default
+root: .
+
+TemplateLength:
+  enabled: true
+  max_length: 400
+
+UnusedAssign:
+  enabled: true
+
+MissingTemplate:
+  enabled: true
+
+UndefinedObject:
+  enabled: false
+
+MissingAsset:
+  enabled: false

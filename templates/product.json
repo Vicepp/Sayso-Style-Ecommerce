@@ -1,0 +1,125 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": { "type": "vendor", "settings": {} },
+        "title": { "type": "title", "settings": { "size": "h2" } },
+        "price": { "type": "price", "settings": { "show_taxes_note": true } },
+        "rating": { "type": "rating", "settings": {} },
+        "description": { "type": "description", "settings": { "truncate": true } },
+        "variant_picker": { "type": "variant_picker", "settings": {} },
+        "inventory": { "type": "inventory", "settings": { "low_threshold": 6 } },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": { "show_quantity": true, "show_dynamic_checkout": true }
+        },
+        "icons": {
+          "type": "icons",
+          "settings": {
+            "icon_1": "truck",
+            "item_1": "Free shipping over $150",
+            "icon_2": "return",
+            "item_2": "30 day returns",
+            "icon_3": "leaf",
+            "item_3": "Repairs for life"
+          }
+        },
+        "details": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Details and care",
+            "content": "<ul><li>Composition and weight of the fabric</li><li>Where it was cut and sewn</li><li>Washing and pressing instructions</li></ul>",
+            "metafield": "details"
+          }
+        },
+        "sizing": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Size and fit",
+            "content": "<p>Model is 178cm and wears a size M. Garment measurements are listed flat, in centimetres. Between sizes? Size down in knitwear, up in outerwear.</p>",
+            "metafield": "sizing"
+          }
+        },
+        "shipping": {
+          "type": "collapsible",
+          "settings": {
+            "heading": "Shipping and returns",
+            "content": "<p>Dispatched within two working days. Complimentary shipping over $150. Thirty day returns on unworn pieces with tags attached.</p>",
+            "metafield": ""
+          }
+        },
+        "sku": { "type": "sku", "settings": {} },
+        "share": { "type": "share", "settings": {} }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "rating",
+        "description",
+        "variant_picker",
+        "inventory",
+        "buy_buttons",
+        "icons",
+        "details",
+        "sizing",
+        "shipping",
+        "sku",
+        "share"
+      ],
+      "settings": {
+        "gallery_layout": "stacked",
+        "image_ratio": "portrait",
+        "show_breadcrumb": true
+      }
+    },
+    "recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "Wear it with",
+        "intent": "related",
+        "products_to_show": 8,
+        "color_scheme": "light",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "trust": {
+      "type": "icon-row",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Natural fibres",
+            "text": "Certified linen, wool and organic cotton."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "ruler",
+            "heading": "Measured, not guessed",
+            "text": "Flat measurements on every product page."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "heading": "Repairs for life",
+            "text": "Send it back and we will mend it, free."
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3"],
+      "settings": {
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["main", "recommendations", "trust"]
+}

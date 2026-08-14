@@ -1,0 +1,184 @@
+{%- liquid
+  assign words = article.content | strip_html | split: ' ' | size
+  assign minutes = words | divided_by: 200 | at_least: 1
+-%}
+
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <article class="article">
+      <header class="article__head" data-reveal-group>
+        <div class="article-card__meta" style="justify-content: center;" data-reveal="fade">
+          <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+            {{- article.published_at | date: '%d %B %Y' -}}
+          </time>
+          {%- if section.settings.show_author and article.author != blank -%}
+            <span>&middot; {{ 'sections.blog.by_author' | t: author: article.author }}</span>
+          {%- endif -%}
+          <span>&middot; {{ 'sections.blog.read_time' | t: minutes: minutes }}</span>
+        </div>
+
+        <h1 data-reveal="rise">{{ article.title }}</h1>
+
+        {%- if article.excerpt != blank -%}
+          <p class="text-lg text-muted" data-reveal="rise">{{ article.excerpt | strip_html }}</p>
+        {%- endif -%}
+      </header>
+
+      {%- if article.image and section.settings.show_image -%}
+        <div class="article__hero media media--wide" data-reveal="mask">
+          {{
+            article.image
+            | image_url: width: 1800
+            | image_tag: loading: 'eager', widths: '600, 900, 1200, 1600, 1800', sizes: '(min-width: 760px) 76rem, 100vw', alt: article.title
+          }}
+        </div>
+      {%- endif -%}
+
+      <div class="article__body rte" data-reveal="fade">
+        {{ article.content }}
+      </div>
+
+      <footer class="article__foot">
+        {%- if article.tags.size > 0 -%}
+          <div class="tag-list">
+            {%- for tag in article.tags -%}
+              <a class="tag" href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+
+        {%- if section.settings.show_share -%}
+          <div class="row">
+            <span class="text-sm text-muted">{{ 'general.share.title' | t }}</span>
+            <a
+              class="icon-btn"
+              href="https://www.facebook.com/sharer.php?u={{ shop.url }}{{ article.url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{ 'general.share.facebook' | t }}"
+            >
+              {% render 'icon', name: 'facebook' %}
+            </a>
+            <a
+              class="icon-btn"
+              href="https://pinterest.com/pin/create/button/?url={{ shop.url }}{{ article.url }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{ 'general.share.pinterest' | t }}"
+            >
+              {% render 'icon', name: 'pinterest' %}
+            </a>
+            <a
+              class="icon-btn"
+              href="https://x.com/intent/post?url={{ shop.url }}{{ article.url }}&text={{ article.title | url_encode }}"
+              target="_blank"
+              rel="noopener"
+              aria-label="{{ 'general.share.x' | t }}"
+            >
+              {% render 'icon', name: 'x' %}
+            </a>
+          </div>
+        {%- endif -%}
+      </footer>
+
+      {%- if blog.previous_article or blog.next_article -%}
+        <nav class="article__foot" style="border-top: 0;">
+          {%- if blog.previous_article -%}
+            <a class="link-arrow" href="{{ blog.previous_article.url }}">
+              {% render 'icon', name: 'arrow-left' %}
+              {{ 'sections.blog.previous_article' | t }}
+            </a>
+          {%- else -%}
+            <span></span>
+          {%- endif -%}
+          {%- if blog.next_article -%}
+            <a class="link-arrow" href="{{ blog.next_article.url }}">
+              {{ 'sections.blog.next_article' | t }}
+              {% render 'icon', name: 'arrow-right' %}
+            </a>
+          {%- endif -%}
+        </nav>
+      {%- endif -%}
+
+      {%- if blog.comments_enabled? -%}
+        <section style="margin-top: 5.6rem;" id="Comments">
+          <h2 class="h4">{{ 'sections.article.comments' | t: count: article.comments_count }}</h2>
+
+          {%- if article.comments_count > 0 -%}
+            <div style="margin-top: 2.4rem;">
+              {%- for comment in article.comments -%}
+                <div class="comment">
+                  <p class="comment__meta">
+                    {{ comment.author }} &middot; {{ comment.created_at | date: '%d %B %Y' }}
+                  </p>
+                  <div class="rte">{{ comment.content }}</div>
+                </div>
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+
+          {%- form 'new_comment', article, class: 'stack', style: 'margin-top: 3.2rem;' -%}
+            {%- if form.posted_successfully? -%}
+              <p class="form__message form__message--success">
+                {% render 'icon', name: 'check' %}
+                {{ 'sections.article.success' | t }}
+              </p>
+            {%- elsif form.errors -%}
+              <div class="form__message form__message--error">{{ form.errors | default_errors }}</div>
+            {%- endif -%}
+
+            <h3 class="h5">{{ 'sections.article.comment_form' | t }}</h3>
+
+            <div class="grid grid--2">
+              <div class="field">
+                <label class="field__label" for="CommentAuthor">{{ 'sections.article.name' | t }}</label>
+                <input id="CommentAuthor" class="input" type="text" name="comment[author]" value="{{ form.author }}" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="CommentEmail">{{ 'sections.article.email' | t }}</label>
+                <input id="CommentEmail" class="input" type="email" name="comment[email]" value="{{ form.email }}" required>
+              </div>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="CommentBody">{{ 'sections.article.message' | t }}</label>
+              <textarea id="CommentBody" class="textarea" name="comment[body]" required>{{ form.body }}</textarea>
+            </div>
+
+            {%- if blog.moderated? -%}
+              <p class="text-sm text-muted">{{ 'sections.article.moderated' | t }}</p>
+            {%- endif -%}
+
+            <button class="btn" type="submit" style="align-self: flex-start;">{{ 'sections.article.post' | t }}</button>
+          {%- endform -%}
+        </section>
+      {%- endif -%}
+    </article>
+  </div>
+</section>
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": {{ article.title | json }},
+    "datePublished": {{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' | json }},
+    "author": { "@type": "Person", "name": {{ article.author | json }} },
+    "publisher": { "@type": "Organization", "name": {{ shop.name | json }} }
+    {%- if article.image -%}
+      , "image": {{ article.image | image_url: width: 1200 | prepend: 'https:' | json }}
+    {%- endif -%}
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Article",
+  "class": "main-article-section",
+  "settings": [
+    { "type": "checkbox", "id": "show_image", "label": "Show featured image", "default": true },
+    { "type": "checkbox", "id": "show_author", "label": "Show author", "default": true },
+    { "type": "checkbox", "id": "show_share", "label": "Show share links", "default": true }
+  ]
+}
+{% endschema %}

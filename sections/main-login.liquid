@@ -1,0 +1,117 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width">
+    <div class="auth-card" data-reveal-group>
+      <div id="RecoverPassword" style="display: none;">
+        <h1 class="h3 text-center" data-reveal="rise">{{ 'customer.recover_password.title' | t }}</h1>
+        <p class="text-muted text-center" style="margin-block: 1rem 2.4rem;">
+          {{ 'customer.recover_password.subtext' | t }}
+        </p>
+
+        {%- form 'recover_customer_password', class: 'stack' -%}
+          {%- if form.posted_successfully? -%}
+            <p class="form__message form__message--success">
+              {% render 'icon', name: 'check' %}
+              {{ 'customer.recover_password.success' | t }}
+            </p>
+          {%- endif -%}
+
+          {%- if form.errors -%}
+            <div class="form__message form__message--error">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+
+          <div class="field">
+            <label class="field__label" for="RecoverEmail">{{ 'customer.login.email' | t }}</label>
+            <input id="RecoverEmail" class="input" type="email" name="email" autocomplete="email" required>
+          </div>
+
+          <button class="btn btn--full" type="submit">{{ 'customer.recover_password.submit' | t }}</button>
+          <button class="btn btn--ghost" type="button" data-show-login>{{ 'customer.recover_password.cancel' | t }}</button>
+        {%- endform -%}
+      </div>
+
+      <div id="LoginPanel">
+        <h1 class="h3 text-center" data-reveal="rise">{{ 'customer.login.title' | t }}</h1>
+
+        {%- form 'customer_login', class: 'stack', style: 'margin-top: 2.4rem;' -%}
+          {%- if form.errors -%}
+            <div class="form__message form__message--error">{{ form.errors | default_errors }}</div>
+          {%- endif -%}
+
+          <div class="field">
+            <label class="field__label" for="LoginEmail">{{ 'customer.login.email' | t }}</label>
+            <input id="LoginEmail" class="input" type="email" name="customer[email]" autocomplete="email" required>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="LoginPassword">{{ 'customer.login.password' | t }}</label>
+            <input
+              id="LoginPassword"
+              class="input"
+              type="password"
+              name="customer[password]"
+              autocomplete="current-password"
+              required
+            >
+          </div>
+
+          <button class="btn btn--full" type="submit">{{ 'customer.login.submit' | t }}</button>
+          <button class="btn btn--ghost" type="button" data-show-recover>{{ 'customer.login.forgot_password' | t }}</button>
+        {%- endform -%}
+
+        <hr style="margin-block: 2.4rem;">
+
+        <div class="text-center stack" style="gap: 1rem;">
+          <span class="text-muted text-sm">{{ 'customer.login.no_account' | t }}</span>
+          <a class="btn btn--secondary btn--full" href="{{ routes.account_register_url }}">
+            {{ 'customer.login.create_account' | t }}
+          </a>
+        </div>
+
+        {%- if shop.checkout.guest_login -%}
+          {%- form 'guest_login', style: 'margin-top: 2.4rem;' -%}
+            <h2 class="h5 text-center">{{ 'customer.login.guest_title' | t }}</h2>
+            <button class="btn btn--secondary btn--full" type="submit" style="margin-top: 1.2rem;">
+              {{ 'customer.login.guest_continue' | t }}
+            </button>
+          {%- endform -%}
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var login = document.getElementById('LoginPanel');
+    var recover = document.getElementById('RecoverPassword');
+    if (!login || !recover) return;
+
+    function show(target) {
+      login.style.display = target === 'login' ? '' : 'none';
+      recover.style.display = target === 'recover' ? '' : 'none';
+    }
+
+    document.querySelectorAll('[data-show-recover]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        show('recover');
+      });
+    });
+
+    document.querySelectorAll('[data-show-login]').forEach(function (button) {
+      button.addEventListener('click', function () {
+        show('login');
+      });
+    });
+
+    // Shopify appends #recover after a failed or successful reset request.
+    if (window.location.hash === '#recover' || recover.querySelector('.form__message')) show('recover');
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Login",
+  "class": "main-login-section",
+  "settings": []
+}
+{% endschema %}

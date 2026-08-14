@@ -1,0 +1,92 @@
+{%- paginate search.results by section.settings.results_per_page -%}
+  <section class="section" data-section-id="{{ section.id }}">
+    <div class="page-width">
+      <div class="section-head section-head--center" data-reveal="{{ settings.anim_reveal_style }}">
+        <div class="section-head__text">
+          <span class="eyebrow">{{ 'general.search.search' | t }}</span>
+          {%- if search.performed -%}
+            <h1>{{ 'general.search.results_for' | t: terms: search.terms }}</h1>
+            <p class="text-muted" style="margin-top: 0.8rem;">
+              {{ 'sections.collection.products_count' | t: count: search.results_count }}
+            </p>
+          {%- else -%}
+            <h1>{{ 'general.search.search' | t }}</h1>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <form action="{{ routes.search_url }}" method="get" role="search" class="row" style="max-width: 56rem; margin: 0 auto 4rem;">
+        <label class="visually-hidden" for="SearchPageInput">{{ 'general.search.search' | t }}</label>
+        <input
+          id="SearchPageInput"
+          class="input"
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          placeholder="{{ 'general.search.placeholder' | t }}"
+        >
+        <input type="hidden" name="options[prefix]" value="last">
+        <button class="btn" type="submit">{{ 'general.search.submit' | t }}</button>
+      </form>
+
+      {%- if search.performed -%}
+        {%- if search.results_count > 0 -%}
+          <div class="grid grid--{{ section.settings.columns }}" data-reveal-group>
+            {%- for item in search.results -%}
+              {%- case item.object_type -%}
+                {%- when 'product' -%}
+                  {% render 'product-card', card_product: item %}
+
+                {%- when 'article' -%}
+                  {% render 'article-card',
+                    article: item,
+                    show_excerpt: true,
+                    ratio: 'portrait',
+                    index: forloop.index0
+                  %}
+
+                {%- when 'page' -%}
+                  <a href="{{ item.url }}" class="stack" data-reveal="{{ settings.anim_reveal_style }}" style="gap: 0.8rem; padding: 2.4rem; border: 1px solid var(--c-line); border-radius: var(--radius);">
+                    <span class="eyebrow">{{ 'general.search.pages' | t }}</span>
+                    <h3 class="h4">{{ item.title }}</h3>
+                    <p class="text-muted text-sm">{{ item.content | strip_html | truncatewords: 24 }}</p>
+                  </a>
+              {%- endcase -%}
+            {%- endfor -%}
+          </div>
+
+          {% render 'pagination', paginate: paginate %}
+        {%- else -%}
+          <div class="empty-state">
+            {% render 'icon', name: 'search' %}
+            <h2 class="h4">{{ 'general.search.no_results' | t: terms: search.terms }}</h2>
+            <a class="btn btn--secondary" href="{{ routes.all_products_collection_url }}">
+              {{ 'sections.collection.browse' | t }}
+            </a>
+          </div>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </section>
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Search results",
+  "class": "main-search-section",
+  "settings": [
+    { "type": "range", "id": "results_per_page", "min": 8, "max": 48, "step": 4, "label": "Results per page", "default": 24 },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns on desktop",
+      "options": [
+        { "value": "2", "label": "2" },
+        { "value": "3", "label": "3" },
+        { "value": "4", "label": "4" }
+      ],
+      "default": "4"
+    }
+  ]
+}
+{% endschema %}

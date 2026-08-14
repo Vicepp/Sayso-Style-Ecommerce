@@ -1,0 +1,29 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "settings": {
+        "eyebrow": "Everything",
+        "heading": "Collections",
+        "text": "<p>Browse the wardrobe by category, season or fabric.</p>",
+        "sort": "manual",
+        "columns": "3",
+        "tall": false
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Letters",
+        "heading": "Notes from the studio",
+        "heading_size": "h2",
+        "text": "<p>New work, restocks and the occasional sale.</p>",
+        "button_label": "Sign up",
+        "color_scheme": "light",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["main", "newsletter"]
+}

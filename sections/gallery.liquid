@@ -1,0 +1,126 @@
+<section
+  class="section scheme-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="section-head section-head--center" data-reveal="{{ settings.anim_reveal_style }}">
+        <div class="section-head__text">
+          {%- if section.settings.eyebrow != blank -%}
+            <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+          {%- endif -%}
+          <h2>{{ section.settings.heading }}</h2>
+          {%- if section.settings.handle != blank -%}
+            <p class="text-muted" style="margin-top: 0.8rem;">{{ section.settings.handle }}</p>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+    <div class="gallery-grid" data-reveal-group>
+      {%- for block in section.blocks -%}
+        {%- capture span -%}{% if block.settings.wide %}grid-column: span 2; grid-row: span 2;{% endif %}{%- endcapture -%}
+        {%- if block.settings.link != blank -%}
+          <a
+            class="gallery-grid__item"
+            href="{{ block.settings.link }}"
+            style="{{ span }}"
+            data-reveal="{{ settings.anim_reveal_style }}"
+            {{ block.shopify_attributes }}
+          >
+        {%- else -%}
+          <div
+            class="gallery-grid__item"
+            style="{{ span }}"
+            data-reveal="{{ settings.anim_reveal_style }}"
+            {{ block.shopify_attributes }}
+          >
+        {%- endif -%}
+
+        {%- liquid
+          assign gallery_index = forloop.index0 | modulo: 8 | plus: 1
+          assign gallery_asset = 'gallery-' | append: gallery_index | append: '.jpg'
+          assign gallery_alt = block.settings.caption | default: section.settings.heading
+        -%}
+        {% render 'media-fallback',
+          image: block.settings.image,
+          asset: gallery_asset,
+          placeholder: 'lifestyle-2',
+          alt: gallery_alt,
+          widths: '300, 500, 800, 1200',
+          sizes: '(min-width: 750px) 20vw, 50vw',
+          width: 1000,
+          height: 1000
+        %}
+
+        {%- if block.settings.caption != blank -%}
+          <span class="gallery-grid__badge text-sm">{{ block.settings.caption }}</span>
+        {%- endif -%}
+
+        {%- if block.settings.link != blank -%}</a>{%- else -%}</div>{%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="text-center" style="margin-top: 3.2rem;" data-reveal="rise">
+        <a class="btn btn--secondary" href="{{ section.settings.button_link }}">{{ section.settings.button_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Gallery",
+  "class": "gallery-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Worn by you" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "In the wild" },
+    { "type": "text", "id": "handle", "label": "Sub text", "default": "@saysostyle" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Follow along" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "header", "content": "Appearance" },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "accent", "label": "Accent" }
+      ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 80 }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "caption", "label": "Caption" },
+        { "type": "checkbox", "id": "wide", "label": "Double size", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gallery",
+      "blocks": [
+        { "type": "image", "settings": { "wide": true } },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" },
+        { "type": "image" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html class="no-js" lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {%- assign gift_card_value = gift_card.initial_value | money -%}
+    <title>{{ 'gift_cards.issued.title' | t: value: gift_card_value, shop: shop.name }}</title>
+
+    {{ content_for_header }}
+
+    {{ settings.font_body | font_face: font_display: 'swap' }}
+    {{ settings.font_heading | font_face: font_display: 'swap' }}
+
+    {% render 'css-variables' %}
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'animations.css' | asset_url | stylesheet_tag }}
+    {{ 'components.css' | asset_url | stylesheet_tag }}
+
+    <script>
+      document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
+    </script>
+  </head>
+
+  <body class="template-gift-card">
+    <main class="section" role="main">
+      <div class="page-width page-width--narrow text-center">
+        <div class="stack" style="gap: 2rem; align-items: center;">
+          <span class="eyebrow">{{ shop.name }}</span>
+          <h1 class="h2">{{ 'gift_cards.issued.subtext' | t }}</h1>
+
+          <div
+            style="
+              width: 100%;
+              padding: 3.2rem;
+              border: 1px solid var(--c-line);
+              border-radius: var(--radius);
+              background-color: color-mix(in srgb, var(--c-fg) 4%, var(--c-bg));
+            "
+          >
+            <p class="h1" style="margin-bottom: 0.4rem;">
+              {%- if gift_card.balance != gift_card.initial_value -%}
+                {{ gift_card.balance | money }}
+              {%- else -%}
+                {{ gift_card.initial_value | money }}
+              {%- endif -%}
+            </p>
+
+            {%- if gift_card.balance != gift_card.initial_value -%}
+              <p class="text-sm text-muted">
+                Originally {{ gift_card.initial_value | money }}
+              </p>
+            {%- endif -%}
+
+            {%- if gift_card.expired and gift_card.expires_on -%}
+              <p class="form__message form__message--error" style="justify-content: center; margin-top: 1.6rem;">
+                {{ 'gift_cards.issued.expires_on' | t: expiry: gift_card.expires_on | date: '%d %B %Y' }}
+              </p>
+            {%- endif -%}
+
+            <div style="margin: 2.4rem auto; max-width: 18rem;">
+              <img
+                src="{{ gift_card | image_url: width: 360 }}"
+                alt="{{ 'gift_cards.issued.qr_image_alt' | t }}"
+                width="180"
+                height="180"
+                loading="lazy"
+                style="margin-inline: auto;"
+              >
+            </div>
+
+            <p class="text-sm text-muted">{{ 'gift_cards.issued.redeem' | t }}</p>
+
+            <p
+              class="h4"
+              style="margin-top: 1rem; letter-spacing: 0.16em; font-family: var(--font-body); word-break: break-all;"
+            >
+              {{ gift_card.code | format_code }}
+            </p>
+          </div>
+
+          <div class="row row--wrap" style="justify-content: center;">
+            <a class="btn" href="{{ shop.url }}">{{ 'gift_cards.issued.shop_link' | t }}</a>
+            <button class="btn btn--secondary" type="button" onclick="window.print()">
+              {{ 'gift_cards.issued.print' | t }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

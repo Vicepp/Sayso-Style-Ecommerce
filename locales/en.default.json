@@ -1,0 +1,368 @@
+{
+  "general": {
+    "meta": {
+      "tags": "Tagged \"{{ tags }}\"",
+      "tagged_html": "Tagged \"{{ tags }}\"",
+      "page": "Page {{ page }}"
+    },
+    "navigation": {
+      "menu": "Menu",
+      "close_menu": "Close menu",
+      "back": "Back",
+      "expand": "Expand {{ title }}"
+    },
+    "search": {
+      "search": "Search",
+      "placeholder": "Search products, journals, pages",
+      "submit": "Search",
+      "clear": "Clear",
+      "close": "Close search",
+      "results_for": "Results for \"{{ terms }}\"",
+      "no_results": "No results for \"{{ terms }}\". Try a different word.",
+      "suggestions": "Suggestions",
+      "products": "Products",
+      "collections": "Collections",
+      "articles": "Journal",
+      "pages": "Pages",
+      "view_all": "View all results",
+      "popular": "Popular searches"
+    },
+    "pagination": {
+      "label": "Pagination",
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}"
+    },
+    "share": {
+      "title": "Share",
+      "copy_link": "Copy link",
+      "copied": "Link copied",
+      "facebook": "Share on Facebook",
+      "pinterest": "Pin it",
+      "x": "Share on X"
+    },
+    "newsletter": {
+      "label": "Email address",
+      "placeholder": "your@email.com",
+      "submit": "Sign up",
+      "success": "Thank you — please check your inbox to confirm.",
+      "consent": "By signing up you agree to our privacy policy."
+    },
+    "continue_shopping": "Continue shopping",
+    "loading": "Loading",
+    "close": "Close",
+    "increase": "Increase quantity",
+    "decrease": "Decrease quantity",
+    "back_to_top": "Back to top",
+    "read_more": "Read more",
+    "view_all": "View all",
+    "learn_more": "Learn more"
+  },
+
+  "accessibility": {
+    "skip_to_content": "Skip to content",
+    "next_slide": "Next",
+    "previous_slide": "Previous",
+    "next_announcement": "Next announcement",
+    "previous_announcement": "Previous announcement",
+    "cart": "Open bag",
+    "account": "Account",
+    "search": "Open search",
+    "menu": "Open menu",
+    "close": "Close",
+    "play": "Play video",
+    "pause": "Pause",
+    "zoom": "Zoom image",
+    "loading": "Loading",
+    "star_rating": "{{ rating }} out of {{ max }} stars"
+  },
+
+  "sections": {
+    "header": {
+      "announcement": "Announcement"
+    },
+    "footer": {
+      "copyright": "All rights reserved.",
+      "payment_methods": "Payment methods",
+      "country": "Country / region",
+      "language": "Language",
+      "powered_by": "Powered by Shopify"
+    },
+    "cart": {
+      "title": "Your bag",
+      "empty": "Your bag is empty",
+      "empty_text": "Nothing here yet. Have a look at what is new.",
+      "subtotal": "Subtotal",
+      "total": "Total",
+      "taxes_note": "Shipping and taxes calculated at checkout.",
+      "checkout": "Checkout",
+      "view_cart": "View bag",
+      "update": "Update",
+      "remove": "Remove",
+      "quantity": "Quantity",
+      "product": "Product",
+      "price": "Price",
+      "note": "Order note",
+      "note_placeholder": "Gift wrapping, delivery instructions, anything else.",
+      "discount": "Discount code",
+      "apply": "Apply",
+      "error": "Something went wrong. Please try again.",
+      "free_shipping_remaining": "You are {{ amount }} away from complimentary shipping",
+      "free_shipping_qualified": "You have earned complimentary shipping",
+      "items_count": {
+        "one": "{{ count }} item",
+        "other": "{{ count }} items"
+      }
+    },
+    "collection": {
+      "title": "Collection",
+      "empty": "No products match these filters.",
+      "empty_action": "Clear all filters",
+      "filter": "Filter",
+      "filters": "Filters",
+      "sort_by": "Sort by",
+      "clear": "Clear",
+      "clear_all": "Clear all",
+      "apply": "Apply",
+      "products_count": {
+        "one": "{{ count }} product",
+        "other": "{{ count }} products"
+      },
+      "load_more": "Load more",
+      "browse": "Browse the collection"
+    },
+    "blog": {
+      "title": "Journal",
+      "read_time": "{{ minutes }} min read",
+      "posted_in": "Posted in",
+      "by_author": "By {{ author }}",
+      "no_articles": "No posts yet. Check back soon.",
+      "all_topics": "All topics",
+      "next_article": "Next post",
+      "previous_article": "Previous post"
+    },
+    "article": {
+      "comments": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "comment_form": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Comment",
+      "post": "Post comment",
+      "moderated": "Comments are reviewed before they appear.",
+      "success": "Thank you, your comment has been posted.",
+      "success_moderated": "Thank you, your comment will appear once approved."
+    },
+    "contact": {
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "success": "Thank you. We reply within two working days.",
+      "error": "Please check the fields below."
+    },
+    "featured_collection": {
+      "view_all": "View all"
+    },
+    "testimonials": {
+      "title": "What people say"
+    },
+    "faq": {
+      "title": "Questions"
+    }
+  },
+
+  "products": {
+    "product": {
+      "add_to_cart": "Add to bag",
+      "quick_add": "Quick add",
+      "free": "Free",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "added": "Added to your bag",
+      "sale": "Sale",
+      "new": "New",
+      "on_sale_save": "Save {{ amount }}",
+      "from_price": "From {{ price }}",
+      "quantity": "Quantity",
+      "sku": "SKU",
+      "vendor": "Brand",
+      "description": "Description",
+      "details": "Details and care",
+      "shipping": "Shipping and returns",
+      "size_guide": "Size guide",
+      "in_stock": "In stock, ready to ship",
+      "low_stock": "Only {{ count }} left",
+      "out_of_stock": "Out of stock",
+      "notify_me": "Email me when back in stock",
+      "share": "Share",
+      "view_details": "View details",
+      "media_gallery": "Product images",
+      "pickup_available": "Pickup available",
+      "choose_options": "Choose options",
+      "select": "Select"
+    },
+    "facets": {
+      "price_from": "From",
+      "price_to": "To",
+      "in_stock_only": "In stock only",
+      "reset": "Reset",
+      "sort_options": {
+        "manual": "Featured",
+        "best_selling": "Best selling",
+        "title_ascending": "A–Z",
+        "title_descending": "Z–A",
+        "price_ascending": "Price, low to high",
+        "price_descending": "Price, high to low",
+        "created_ascending": "Oldest first",
+        "created_descending": "Newest first"
+      }
+    }
+  },
+
+  "customer": {
+    "account": {
+      "title": "Account",
+      "welcome": "Welcome back, {{ name }}",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "orders": "Order history",
+      "no_orders": "You have not placed any orders yet.",
+      "log_out": "Log out"
+    },
+    "login": {
+      "title": "Log in",
+      "email": "Email",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "submit": "Log in",
+      "no_account": "New here?",
+      "create_account": "Create an account",
+      "guest_title": "Continue as a guest",
+      "guest_continue": "Continue"
+    },
+    "recover_password": {
+      "title": "Reset your password",
+      "subtext": "We will email you a link to set a new one.",
+      "submit": "Send reset link",
+      "success": "We have sent you an email with a link to update your password.",
+      "cancel": "Back to log in"
+    },
+    "register": {
+      "title": "Create an account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create account",
+      "has_account": "Already have an account?",
+      "log_in": "Log in"
+    },
+    "activate_account": {
+      "title": "Activate your account",
+      "subtext": "Create a password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm password",
+      "submit": "Activate account",
+      "decline": "Decline invitation"
+    },
+    "reset_password": {
+      "title": "Set a new password",
+      "password": "New password",
+      "password_confirm": "Confirm password",
+      "submit": "Save password"
+    },
+    "addresses": {
+      "title": "Addresses",
+      "add_new": "Add a new address",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Delete this address?",
+      "default": "Default address",
+      "set_default": "Set as default address",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "company": "Company",
+      "address1": "Address",
+      "address2": "Apartment, suite, etc.",
+      "city": "City",
+      "country": "Country / region",
+      "province": "State / province",
+      "zip": "Postal / ZIP code",
+      "phone": "Phone",
+      "save": "Save address",
+      "cancel": "Cancel",
+      "none": "You have not saved an address yet."
+    },
+    "orders": {
+      "order_number": "Order",
+      "date": "Date",
+      "payment_status": "Payment",
+      "fulfillment_status": "Fulfilment",
+      "total": "Total",
+      "view": "View order"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled": "Cancelled on {{ date }}",
+      "cancelled_reason": "Reason: {{ reason }}",
+      "billing_address": "Billing address",
+      "shipping_address": "Shipping address",
+      "payment_status": "Payment status",
+      "fulfillment_status": "Fulfilment status",
+      "product": "Product",
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "Quantity",
+      "total": "Total",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "discount": "Discount",
+      "track_shipment": "Track shipment"
+    }
+  },
+
+  "gift_cards": {
+    "issued": {
+      "title": "Here is your {{ value }} gift card for {{ shop }}",
+      "subtext": "Your gift card",
+      "expires_on": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print",
+      "add_to_apple_wallet": "Add to Apple Wallet",
+      "qr_image_alt": "QR code — scan to redeem gift card"
+    }
+  },
+
+  "onboarding": {
+    "product_title": "Example product",
+    "collection_title": "Example collection",
+    "article_title": "Example journal entry",
+    "article_excerpt": "Replace this placeholder with your own writing once your journal is live."
+  },
+
+  "shopify": {
+    "links": {
+      "powered_by_shopify": "Powered by Shopify"
+    }
+  },
+
+  "password_page": {
+    "opening_soon": "Opening soon",
+    "login_form_heading": "Enter using password",
+    "login_password_button": "Enter using password",
+    "login_form_password_label": "Password",
+    "login_form_password_placeholder": "Your password",
+    "login_form_error": "Wrong password",
+    "login_form_submit": "Enter",
+    "admin_link_html": "Are you the store owner? <a href=\"/admin\" class=\"link-underline\">Log in here</a>",
+    "powered_by_shopify_html": "This shop will be powered by {{ shopify }}"
+  }
+}

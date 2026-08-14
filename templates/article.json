@@ -1,0 +1,39 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {
+        "show_image": true,
+        "show_author": true,
+        "show_share": true
+      }
+    },
+    "more": {
+      "type": "blog-posts",
+      "settings": {
+        "eyebrow": "Keep reading",
+        "heading": "More from the journal",
+        "posts_to_show": 3,
+        "columns": "3",
+        "show_excerpt": true,
+        "color_scheme": "light",
+        "padding_top": 88,
+        "padding_bottom": 88
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Letters",
+        "heading": "Get the next one by email",
+        "heading_size": "h2",
+        "text": "<p>One thoughtful note a month. Nothing else.</p>",
+        "button_label": "Sign up",
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": ["main", "more", "newsletter"]
+}

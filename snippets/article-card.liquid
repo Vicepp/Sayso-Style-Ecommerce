@@ -1,0 +1,48 @@
+{%- comment -%}
+  Renders a journal card.
+  Accepts: article, show_excerpt, ratio
+{%- endcomment -%}
+
+{%- liquid
+  assign card_ratio = ratio | default: 'wide'
+  assign words = article.content | strip_html | split: ' ' | size
+  assign minutes = words | divided_by: 200 | at_least: 1
+-%}
+
+<article class="article-card" data-reveal="{{ settings.anim_reveal_style }}">
+  <a class="article-card__media media media--{{ card_ratio }}{% if settings.anim_image_zoom %} zoom-media{% endif %}" href="{{ article.url }}" tabindex="-1" aria-hidden="true">
+    {%- liquid
+      # `index` is passed by the caller — render tags do not inherit forloop.
+      assign blog_index = index | default: 0 | modulo: 3 | plus: 1
+      assign blog_asset = 'blog-' | append: blog_index | append: '.jpg'
+    -%}
+    {% render 'media-fallback',
+      image: article.image,
+      asset: blog_asset,
+      placeholder: 'blog-apparel-1',
+      alt: article.title,
+      widths: '300, 500, 800, 1200',
+      sizes: '(min-width: 990px) 33vw, 100vw'
+    %}
+  </a>
+
+  <div class="article-card__meta">
+    <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+      {{- article.published_at | date: '%d %b %Y' -}}
+    </time>
+    {%- if article.tags.size > 0 -%}
+      <span>&middot; {{ article.tags.first }}</span>
+    {%- endif -%}
+    <span>&middot; {{ 'sections.blog.read_time' | t: minutes: minutes }}</span>
+  </div>
+
+  <h3 class="article-card__title">
+    <a href="{{ article.url }}" class="hover-line">{{ article.title }}</a>
+  </h3>
+
+  {%- if show_excerpt -%}
+    <p class="article-card__excerpt">
+      {{- article.excerpt_or_content | strip_html | truncatewords: 26 -}}
+    </p>
+  {%- endif -%}
+</article>

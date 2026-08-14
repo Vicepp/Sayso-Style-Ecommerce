@@ -1,0 +1,392 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Sayso Style",
+    "theme_version": "1.0.0",
+    "theme_author": "Sayso Style",
+    "theme_documentation_url": "https://github.com/",
+    "theme_support_url": "https://github.com/"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "min": 60,
+        "max": 260,
+        "step": 5,
+        "unit": "px",
+        "label": "Logo width",
+        "default": 140
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon",
+        "info": "Square image, at least 32 x 32 px."
+      },
+      {
+        "type": "textarea",
+        "id": "brand_tagline",
+        "label": "Brand tagline",
+        "default": "Considered clothing, made to last."
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Light scheme"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#faf7f2"
+      },
+      {
+        "type": "color",
+        "id": "color_foreground",
+        "label": "Text",
+        "default": "#171512"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Secondary text",
+        "default": "#756e64"
+      },
+      {
+        "type": "color",
+        "id": "color_line",
+        "label": "Borders",
+        "default": "#e3dcd2"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#9a6f4e"
+      },
+      {
+        "type": "header",
+        "content": "Dark scheme"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_background",
+        "label": "Background",
+        "default": "#171512"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_foreground",
+        "label": "Text",
+        "default": "#f6f1ea"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_muted",
+        "label": "Secondary text",
+        "default": "#a89f93"
+      },
+      {
+        "type": "color",
+        "id": "color_dark_line",
+        "label": "Borders",
+        "default": "#332e28"
+      },
+      {
+        "type": "header",
+        "content": "Utility"
+      },
+      {
+        "type": "color",
+        "id": "color_sale",
+        "label": "Sale price",
+        "default": "#9c2f2f"
+      },
+      {
+        "type": "color",
+        "id": "color_success",
+        "label": "Success",
+        "default": "#2f6b46"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Headings",
+        "default": "playfair_display_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "range",
+        "id": "font_body_scale",
+        "min": 90,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "label": "Body size",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "font_heading_scale",
+        "min": 90,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Heading size",
+        "default": 100
+      },
+      {
+        "type": "range",
+        "id": "heading_letter_spacing",
+        "min": -4,
+        "max": 8,
+        "step": 1,
+        "unit": "px",
+        "label": "Heading letter spacing",
+        "default": -1
+      },
+      {
+        "type": "checkbox",
+        "id": "uppercase_labels",
+        "label": "Uppercase small labels",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "page_width",
+        "min": 1100,
+        "max": 1800,
+        "step": 20,
+        "unit": "px",
+        "label": "Page width",
+        "default": 1500
+      },
+      {
+        "type": "range",
+        "id": "spacing_sections",
+        "min": 0,
+        "max": 120,
+        "step": 4,
+        "unit": "px",
+        "label": "Space between sections",
+        "default": 0
+      },
+      {
+        "type": "range",
+        "id": "corner_radius",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "unit": "px",
+        "label": "Corner radius",
+        "default": 0
+      },
+      {
+        "type": "select",
+        "id": "button_style",
+        "label": "Button style",
+        "options": [
+          { "value": "square", "label": "Square" },
+          { "value": "soft", "label": "Soft" },
+          { "value": "pill", "label": "Pill" }
+        ],
+        "default": "square"
+      }
+    ]
+  },
+  {
+    "name": "Animations",
+    "settings": [
+      {
+        "type": "paragraph",
+        "content": "All motion respects the visitor's reduced-motion system preference."
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_reveal",
+        "label": "Reveal content on scroll",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "anim_reveal_style",
+        "label": "Reveal style",
+        "options": [
+          { "value": "fade", "label": "Fade" },
+          { "value": "rise", "label": "Fade and rise" },
+          { "value": "mask", "label": "Curtain wipe" }
+        ],
+        "default": "rise"
+      },
+      {
+        "type": "range",
+        "id": "anim_speed",
+        "min": 200,
+        "max": 1400,
+        "step": 50,
+        "unit": "ms",
+        "label": "Animation duration",
+        "default": 700
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_page_transition",
+        "label": "Fade between pages",
+        "default": true,
+        "info": "Uses the browser View Transitions API where supported."
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_image_zoom",
+        "label": "Zoom images on hover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_sticky_header",
+        "label": "Hide header when scrolling down",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "anim_parallax",
+        "label": "Parallax on banner images",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Product cards",
+    "settings": [
+      {
+        "type": "select",
+        "id": "card_image_ratio",
+        "label": "Image ratio",
+        "options": [
+          { "value": "natural", "label": "Natural" },
+          { "value": "square", "label": "Square (1:1)" },
+          { "value": "portrait", "label": "Portrait (3:4)" },
+          { "value": "tall", "label": "Tall (2:3)" }
+        ],
+        "default": "portrait"
+      },
+      {
+        "type": "checkbox",
+        "id": "card_hover_image",
+        "label": "Show second image on hover",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_vendor",
+        "label": "Show vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "card_show_swatches",
+        "label": "Show colour swatches",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "card_quick_add",
+        "label": "Show quick add button",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          { "value": "drawer", "label": "Slide-out drawer" },
+          { "value": "page", "label": "Cart page" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_note",
+        "label": "Enable order notes",
+        "default": true
+      },
+      {
+        "type": "richtext",
+        "id": "cart_footer_text",
+        "label": "Text below checkout button",
+        "default": "<p>Shipping and taxes calculated at checkout.</p>"
+      },
+      {
+        "type": "checkbox",
+        "id": "free_shipping_bar",
+        "label": "Show free shipping progress bar",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold",
+        "info": "In your store currency, whole numbers only.",
+        "default": 150
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "text", "id": "social_instagram", "label": "Instagram" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok" },
+      { "type": "text", "id": "social_facebook", "label": "Facebook" },
+      { "type": "text", "id": "social_pinterest", "label": "Pinterest" },
+      { "type": "text", "id": "social_youtube", "label": "YouTube" }
+    ]
+  },
+  {
+    "name": "Search and social sharing",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "share_image",
+        "label": "Default social sharing image"
+      },
+      {
+        "type": "checkbox",
+        "id": "predictive_search",
+        "label": "Show suggestions as you type",
+        "default": true
+      }
+    ]
+  }
+]

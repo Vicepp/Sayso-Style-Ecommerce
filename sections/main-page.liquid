@@ -1,0 +1,58 @@
+<section class="section" data-section-id="{{ section.id }}">
+  <div class="page-width {% if section.settings.narrow %}page-width--narrow{% else %}page-width--mid{% endif %}">
+    <header class="stack" style="gap: 1rem; margin-bottom: clamp(2.4rem, 4vw, 4.8rem); text-align: {{ section.settings.align }};" data-reveal-group>
+      {%- if section.settings.eyebrow != blank -%}
+        <span class="eyebrow" data-reveal="rise">{{ section.settings.eyebrow }}</span>
+      {%- endif -%}
+      <h1 class="{{ section.settings.heading_size }}" data-reveal="rise">{{ page.title }}</h1>
+    </header>
+
+    {%- if section.settings.image != blank -%}
+      <div class="media media--wide" style="margin-bottom: clamp(2.4rem, 4vw, 4.8rem);" data-reveal="mask">
+        {{
+          section.settings.image
+          | image_url: width: 1800
+          | image_tag: loading: 'lazy', widths: '600, 900, 1200, 1800', sizes: '100vw', alt: page.title
+        }}
+      </div>
+    {%- endif -%}
+
+    <div class="rte {% if section.settings.large_text %}text-lg{% endif %}" data-reveal="fade">
+      {{ page.content }}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Page",
+  "class": "main-page-section",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "image_picker", "id": "image", "label": "Banner image" },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Heading alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centre" }
+      ],
+      "default": "center"
+    },
+    { "type": "checkbox", "id": "narrow", "label": "Narrow column", "default": true },
+    { "type": "checkbox", "id": "large_text", "label": "Larger body text", "default": false }
+  ]
+}
+{% endschema %}

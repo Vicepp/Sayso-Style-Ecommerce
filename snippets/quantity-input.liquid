@@ -1,0 +1,34 @@
+{%- comment -%}
+  Renders a quantity stepper.
+  Accepts: input_id, input_name, value, min, max, form_id, line, label
+{%- endcomment -%}
+
+<quantity-input class="qty">
+  <button type="button" name="minus" aria-label="{{ 'general.decrease' | t }}">
+    {% render 'icon', name: 'minus' %}
+  </button>
+  <label class="visually-hidden" for="{{ input_id }}">{{ label | default: 'Quantity' }}</label>
+  <input
+    id="{{ input_id }}"
+    class="qty__input"
+    type="number"
+    name="{{ input_name | default: 'quantity' }}"
+    value="{{ value | default: 1 }}"
+    min="{{ min | default: 1 }}"
+    {% if max %}
+      max="{{ max }}"
+    {% endif %}
+    step="1"
+    inputmode="numeric"
+    {% if form_id %}
+      form="{{ form_id }}"
+    {% endif %}
+    {% if line %}
+      data-line-qty
+      data-line="{{ line }}"
+    {% endif %}
+  >
+  <button type="button" name="plus" aria-label="{{ 'general.increase' | t }}">
+    {% render 'icon', name: 'plus' %}
+  </button>
+</quantity-input>

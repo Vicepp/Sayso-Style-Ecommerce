@@ -1,0 +1,91 @@
+{
+  "name": "Footer",
+  "type": "footer",
+  "sections": {
+    "trust-bar": {
+      "type": "icon-row",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Carbon-neutral delivery",
+            "text": "Complimentary over $150, worldwide."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "heading": "30 day returns",
+            "text": "Unworn, with tags, no questions."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Natural fibres",
+            "text": "Certified linen, wool and cotton."
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "heading": "Made to last",
+            "text": "Repairs offered for life."
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"],
+      "settings": {
+        "color_scheme": "light",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "f1": {
+          "type": "menu",
+          "settings": { "heading": "Shop", "menu": "footer" }
+        },
+        "f2": {
+          "type": "text",
+          "settings": {
+            "heading": "The house",
+            "text": "<p>Sayso Style is a small studio making quiet, durable clothing in limited runs. Everything is cut in low volumes from deadstock and certified natural fibres.</p>"
+          }
+        },
+        "f3": {
+          "type": "contact",
+          "settings": {
+            "heading": "Visit",
+            "address": "18 Marlow Yard, London E2",
+            "email": "hello@saysostyle.com",
+            "phone": "+44 20 7946 0812",
+            "hours": "Thu–Sun, 11am–6pm"
+          }
+        },
+        "f4": {
+          "type": "newsletter",
+          "settings": {
+            "heading": "Letters",
+            "text": "<p>Occasional notes on new work, restocks and studio sales.</p>"
+          }
+        }
+      },
+      "block_order": ["f1", "f2", "f3", "f4"],
+      "settings": {
+        "color_scheme": "dark",
+        "copyright_text": "Sayso Style",
+        "show_social": true,
+        "show_payment_icons": true,
+        "show_locale_selector": true
+      }
+    }
+  },
+  "order": ["trust-bar", "footer"]
+}

@@ -1,0 +1,26 @@
+{%- comment -%}Renders the wordmark or logo image in the header.{%- endcomment -%}
+
+{%- capture logo_inner -%}
+  <a href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }}">
+    {%- if settings.logo != blank -%}
+      <img
+        class="header__logo-img"
+        src="{{ settings.logo | image_url: width: 600 }}"
+        srcset="{{ settings.logo | image_url: width: 300 }} 300w, {{ settings.logo | image_url: width: 600 }} 600w"
+        sizes="{{ settings.logo_width }}px"
+        width="{{ settings.logo.width }}"
+        height="{{ settings.logo.height }}"
+        alt="{{ shop.name | escape }}"
+        style="width: {{ settings.logo_width }}px;"
+      >
+    {%- else -%}
+      {{ shop.name }}
+    {%- endif -%}
+  </a>
+{%- endcapture -%}
+
+{%- if request.page_type == 'index' -%}
+  <h1 class="header__logo">{{ logo_inner }}</h1>
+{%- else -%}
+  <div class="header__logo">{{ logo_inner }}</div>
+{%- endif -%}

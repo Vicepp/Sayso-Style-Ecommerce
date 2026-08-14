@@ -1,0 +1,66 @@
+{
+  "sections": {
+    "form": {
+      "type": "contact-form",
+      "settings": {
+        "eyebrow": "Say hello",
+        "heading": "Talk to a person",
+        "text": "<p>Sizing, alterations, repairs, wholesale — whatever it is, we read every message and reply within two working days.</p>",
+        "subjects": "General question, Order or delivery, Returns, Sizing and fit, Repairs, Wholesale, Press",
+        "email": "hello@saysostyle.com",
+        "phone": "+44 20 7946 0812",
+        "address": "<p>18 Marlow Yard, London E2<br/>Thursday to Sunday, 11am–6pm</p>",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 72
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Where is my order?",
+            "answer": "<p>You will have a tracking link in your dispatch email. If it has been more than five working days since that email, send us the order number and we will chase it.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I change or cancel an order?",
+            "answer": "<p>Yes, if it has not shipped. Email us with the order number as soon as you can and we will catch it before it leaves the studio.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer alterations?",
+            "answer": "<p>We shorten sleeves and hems on tailoring at no charge within the first year. Send the piece back with a note and your preferred measurement.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Do you sell wholesale?",
+            "answer": "<p>To a small number of stockists each season. Use the wholesale subject above and tell us about your shop.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "eyebrow": "Before you write",
+        "heading": "Most asked",
+        "text": "<p>These four cover about half the messages we get.</p>",
+        "button_label": "",
+        "layout": "split",
+        "one_at_a_time": true,
+        "open_first": false,
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": ["form", "faq"]
+}

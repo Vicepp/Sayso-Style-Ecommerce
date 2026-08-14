@@ -1,0 +1,81 @@
+{%- liquid
+  assign has_image = false
+  if section.settings.show_image and collection.image
+    assign has_image = true
+  endif
+-%}
+
+<section class="scheme-{{ section.settings.color_scheme }}" data-section-id="{{ section.id }}">
+  <div class="{% if has_image %}collection-hero collection-hero--image{% else %}page-width{% endif %}">
+    {%- if has_image -%}
+      <div class="collection-hero__media{% if settings.anim_parallax %} parallax-media{% endif %}" data-parallax="0.14">
+        {{
+          collection.image
+          | image_url: width: 2400
+          | image_tag: loading: 'eager', widths: '600, 900, 1400, 1800, 2400', sizes: '100vw', alt: collection.title
+        }}
+      </div>
+      <div class="page-width">
+    {%- endif -%}
+
+    <div class="collection-hero" data-reveal-group>
+      {%- if section.settings.show_breadcrumb -%}
+        <nav class="text-sm" style="opacity: 0.75;" aria-label="Breadcrumb" data-reveal="fade">
+          <a class="hover-line" href="{{ routes.root_url }}">{{ shop.name }}</a>
+          <span> / </span>
+          <a class="hover-line" href="{{ routes.collections_url }}">{{ 'sections.collection.title' | t }}</a>
+          <span> / </span>
+          <span>{{ collection.title }}</span>
+        </nav>
+      {%- endif -%}
+
+      <h1 class="{{ section.settings.heading_size }}" data-reveal="rise">
+        {{ collection.title | default: 'sections.collection.title' | t }}
+      </h1>
+
+      {%- if section.settings.show_description and collection.description != blank -%}
+        <div class="rte {% unless has_image %}text-muted{% endunless %}" data-reveal="rise" style="max-width: 62ch;{% if has_image %}margin-inline: auto;{% endif %}">
+          {{ collection.description }}
+        </div>
+      {%- endif -%}
+    </div>
+
+    {%- if has_image -%}
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection banner",
+  "class": "collection-banner-section",
+  "settings": [
+    { "type": "checkbox", "id": "show_image", "label": "Use the collection image as a banner", "default": true },
+    { "type": "checkbox", "id": "show_description", "label": "Show description", "default": true },
+    { "type": "checkbox", "id": "show_breadcrumb", "label": "Show breadcrumb", "default": true },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading size",
+      "options": [
+        { "value": "h2", "label": "Medium" },
+        { "value": "h1", "label": "Large" },
+        { "value": "h0", "label": "Extra large" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "accent", "label": "Accent" }
+      ],
+      "default": "light"
+    }
+  ]
+}
+{% endschema %}

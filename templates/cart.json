@@ -1,0 +1,63 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-cart",
+      "settings": {
+        "show_discount_field": true
+      }
+    },
+    "trust": {
+      "type": "icon-row",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Carbon-neutral delivery",
+            "text": "Complimentary over $150, worldwide."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "heading": "30 day returns",
+            "text": "Unworn, with tags, no questions."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "heading": "Secure checkout",
+            "text": "Encrypted and handled by Shopify."
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3"],
+      "settings": {
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    },
+    "recommendations": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Before you go",
+        "heading": "Complete the look",
+        "heading_size": "h3",
+        "align": "left",
+        "layout": "carousel",
+        "products_to_show": 8,
+        "columns": "4",
+        "image_ratio": "portrait",
+        "show_view_all": true,
+        "color_scheme": "light",
+        "padding_top": 0,
+        "padding_bottom": 88
+      }
+    }
+  },
+  "order": ["main", "trust", "recommendations"]
+}

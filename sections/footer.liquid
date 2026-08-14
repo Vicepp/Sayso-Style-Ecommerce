@@ -1,0 +1,242 @@
+<footer class="site-footer scheme-{{ section.settings.color_scheme }}" role="contentinfo">
+  <div class="page-width">
+    <div class="footer__top" data-reveal-group>
+      {%- for block in section.blocks -%}
+        <div data-reveal="{{ settings.anim_reveal_style }}" {{ block.shopify_attributes }}>
+          {%- case block.type -%}
+            {%- when 'menu' -%}
+              {%- if block.settings.heading != blank -%}
+                <p class="footer__heading">{{ block.settings.heading }}</p>
+              {%- endif -%}
+              <nav aria-label="{{ block.settings.heading | escape }}">
+                {%- for link in block.settings.menu.links -%}
+                  <a class="footer__link" href="{{ link.url }}">{{ link.title }}</a>
+                {%- endfor -%}
+              </nav>
+
+            {%- when 'text' -%}
+              {%- if block.settings.heading != blank -%}
+                <p class="footer__heading">{{ block.settings.heading }}</p>
+              {%- endif -%}
+              <div class="rte text-sm text-muted" style="max-width: 34ch;">{{ block.settings.text }}</div>
+
+            {%- when 'newsletter' -%}
+              {%- if block.settings.heading != blank -%}
+                <p class="footer__heading">{{ block.settings.heading }}</p>
+              {%- endif -%}
+              {%- if block.settings.text != blank -%}
+                <div class="rte text-sm text-muted" style="max-width: 36ch; margin-bottom: 1.6rem;">
+                  {{ block.settings.text }}
+                </div>
+              {%- endif -%}
+
+              {%- form 'customer', class: 'newsletter-form' -%}
+                {%- if form.posted_successfully? -%}
+                  <p class="form__message form__message--success">
+                    {% render 'icon', name: 'check' %}
+                    {{ 'general.newsletter.success' | t }}
+                  </p>
+                {%- else -%}
+                  <input type="hidden" name="contact[tags]" value="newsletter">
+                  <label class="visually-hidden" for="FooterEmail">{{ 'general.newsletter.label' | t }}</label>
+                  <input
+                    id="FooterEmail"
+                    class="input"
+                    type="email"
+                    name="contact[email]"
+                    placeholder="{{ 'general.newsletter.placeholder' | t }}"
+                    autocomplete="email"
+                    required
+                  >
+                  <button class="btn" type="submit">{{ 'general.newsletter.submit' | t }}</button>
+                  {%- if form.errors -%}
+                    <p class="form__message form__message--error" style="width:100%;">
+                      {{ form.errors.messages.email }}
+                    </p>
+                  {%- endif -%}
+                {%- endif -%}
+              {%- endform -%}
+
+            {%- when 'contact' -%}
+              {%- if block.settings.heading != blank -%}
+                <p class="footer__heading">{{ block.settings.heading }}</p>
+              {%- endif -%}
+              <div class="stack" style="gap: 0.9rem;">
+                {%- if block.settings.address != blank -%}
+                  <span class="text-sm text-muted">{{ block.settings.address }}</span>
+                {%- endif -%}
+                {%- if block.settings.email != blank -%}
+                  <a class="footer__link" href="mailto:{{ block.settings.email }}">{{ block.settings.email }}</a>
+                {%- endif -%}
+                {%- if block.settings.phone != blank -%}
+                  <a class="footer__link" href="tel:{{ block.settings.phone | replace: ' ', '' }}">
+                    {{- block.settings.phone -}}
+                  </a>
+                {%- endif -%}
+                {%- if block.settings.hours != blank -%}
+                  <span class="text-sm text-muted">{{ block.settings.hours }}</span>
+                {%- endif -%}
+              </div>
+
+            {%- when 'image' -%}
+              {%- if block.settings.image != blank -%}
+                <div class="media media--square" style="max-width: 22rem;">
+                  {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.image.alt }}
+                </div>
+              {%- endif -%}
+              {%- if block.settings.caption != blank -%}
+                <p class="text-sm text-muted" style="margin-top: 1rem;">{{ block.settings.caption }}</p>
+              {%- endif -%}
+          {%- endcase -%}
+        </div>
+      {%- endfor -%}
+    </div>
+
+    <div class="footer__bottom">
+      <div class="row row--wrap" style="gap: 1.6rem 2.4rem;">
+        <span>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text | default: shop.name }}. {{ 'sections.footer.copyright' | t }}</span>
+
+        {%- if section.settings.show_locale_selector and localization.available_countries.size > 1 -%}
+          <form method="post" action="{{ routes.root_url }}/localization" id="FooterLocalization" accept-charset="UTF-8" class="row">
+            <input type="hidden" name="form_type" value="localization">
+            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="return_to" value="{{ request.path }}">
+            <label class="visually-hidden" for="FooterCountry">{{ 'sections.footer.country' | t }}</label>
+            <select id="FooterCountry" class="select" name="country_code" style="min-height: 3.6rem; padding: 0.4rem 3.2rem 0.4rem 1rem; font-size: 1.25rem;" onchange="this.form.submit()">
+              {%- for country in localization.available_countries -%}
+                <option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>
+                  {{ country.name }} ({{ country.currency.iso_code }} {{ country.currency.symbol }})
+                </option>
+              {%- endfor -%}
+            </select>
+          </form>
+        {%- endif -%}
+      </div>
+
+      <div class="row row--wrap">
+        {%- if section.settings.show_social -%}
+          {% render 'social-icons' %}
+        {%- endif -%}
+
+        {%- if section.settings.show_payment_icons and shop.enabled_payment_types.size > 0 -%}
+          <div class="payment-icons" role="list" aria-label="{{ 'sections.footer.payment_methods' | t }}">
+            {%- for type in shop.enabled_payment_types -%}
+              <span role="listitem">{{ type | payment_type_svg_tag: class: 'payment-icon' }}</span>
+            {%- endfor -%}
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "class": "footer-section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "accent", "label": "Accent" }
+      ],
+      "default": "dark"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright name",
+      "info": "Defaults to your store name."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_locale_selector",
+      "label": "Show country selector",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Shop" },
+        { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "About" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Share a short note about the studio, the materials you use, or the people who make your clothes.</p>"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter",
+      "limit": 1,
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Letters" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Occasional notes on new work, restocks and studio sales.</p>"
+        }
+      ]
+    },
+    {
+      "type": "contact",
+      "name": "Contact",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "Visit" },
+        { "type": "text", "id": "address", "label": "Address" },
+        { "type": "text", "id": "email", "label": "Email" },
+        { "type": "text", "id": "phone", "label": "Phone" },
+        { "type": "text", "id": "hours", "label": "Opening hours" }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "caption", "label": "Caption" }
+      ]
+    }
+  ],
+  "default": {
+    "settings": {},
+    "blocks": [
+      { "type": "menu" },
+      { "type": "text" },
+      { "type": "newsletter" }
+    ]
+  },
+  "enabled_on": {
+    "groups": ["footer"]
+  }
+}
+{% endschema %}

@@ -1,0 +1,196 @@
+{
+  "sections": {
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "r1": { "type": "eyebrow", "settings": { "text": "Help" } },
+        "r2": { "type": "heading", "settings": { "text": "Questions, answered", "size": "h1" } },
+        "r3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everything we get asked most often. If yours is not here, write to us — a real person replies within two working days.</p>"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "align": "center",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 32
+      }
+    },
+    "orders": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "When will my order be dispatched?",
+            "answer": "<p>Within two working days. You will get a tracking link the moment it leaves the studio.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How much is shipping?",
+            "answer": "<p>Complimentary on orders over $150. Below that it is a flat rate calculated at checkout, and it is always carbon-offset at our cost.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes, worldwide. Duties for orders outside the UK and EU are collected at checkout so nothing is owed on delivery.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I change or cancel an order?",
+            "answer": "<p>If it has not shipped, yes. Email your order number as soon as you can and we will catch it.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "eyebrow": "01",
+        "heading": "Orders and delivery",
+        "text": "",
+        "button_label": "",
+        "layout": "split",
+        "one_at_a_time": true,
+        "open_first": true,
+        "color_scheme": "light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "returns": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "What is the returns window?",
+            "answer": "<p>Thirty days from delivery, unworn and with tags attached. Underwear and pierced jewellery are the only exceptions.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I return something?",
+            "answer": "<p>Use the label in your parcel, or request one from your account page. Refunds land on the original payment method within five working days of arrival.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Can I exchange for another size?",
+            "answer": "<p>Yes. Note the size you want on the returns slip and we will reserve it while your parcel is in transit.</p>"
+          }
+        },
+        "q4": {
+          "type": "question",
+          "settings": {
+            "question": "Are sale items returnable?",
+            "answer": "<p>Everything except final-sale pieces, which are marked clearly on the product page.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3", "q4"],
+      "settings": {
+        "eyebrow": "02",
+        "heading": "Returns and exchanges",
+        "text": "",
+        "button_label": "",
+        "layout": "split",
+        "one_at_a_time": true,
+        "open_first": false,
+        "color_scheme": "light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "fit": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I choose a size?",
+            "answer": "<p>Every product page lists flat garment measurements in centimetres, plus the height and size of the model. Compare against a piece you already own and love.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "I am between sizes — up or down?",
+            "answer": "<p>Down in knitwear, up in outerwear. Shirting is cut generously, so most people take their usual size.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "Will it shrink?",
+            "answer": "<p>Our natural fibres are pre-washed, so shrinkage is minimal if you follow the care label. Cold wash, dry flat, never tumble.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3"],
+      "settings": {
+        "eyebrow": "03",
+        "heading": "Sizing and fit",
+        "text": "",
+        "button_label": "",
+        "layout": "split",
+        "one_at_a_time": true,
+        "open_first": false,
+        "color_scheme": "light",
+        "padding_top": 40,
+        "padding_bottom": 40
+      }
+    },
+    "care": {
+      "type": "faq",
+      "blocks": {
+        "q1": {
+          "type": "question",
+          "settings": {
+            "question": "Do you really repair for free?",
+            "answer": "<p>Yes. Seams, buttons, zips, moth holes — for as long as you own the piece. You cover postage to us, we cover everything else.</p>"
+          }
+        },
+        "q2": {
+          "type": "question",
+          "settings": {
+            "question": "How should I wash knitwear?",
+            "answer": "<p>Rarely. Air it between wears, spot-clean marks, and hand wash cool once or twice a season. Dry flat, away from radiators.</p>"
+          }
+        },
+        "q3": {
+          "type": "question",
+          "settings": {
+            "question": "What if a piece is beyond repair?",
+            "answer": "<p>Send it back anyway. We take it apart for patch stock and offer you a credit towards a replacement.</p>"
+          }
+        }
+      },
+      "block_order": ["q1", "q2", "q3"],
+      "settings": {
+        "eyebrow": "04",
+        "heading": "Care and repairs",
+        "text": "<p>Still stuck? Write to us and we will help.</p>",
+        "button_label": "Contact us",
+        "button_link": "shopify://pages/contact",
+        "layout": "split",
+        "one_at_a_time": true,
+        "open_first": false,
+        "color_scheme": "light",
+        "padding_top": 40,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": ["intro", "orders", "returns", "fit", "care"]
+}

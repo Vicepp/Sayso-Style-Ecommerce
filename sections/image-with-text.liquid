@@ -1,0 +1,233 @@
+<section
+  class="section scheme-{{ section.settings.color_scheme }}"
+  data-section-id="{{ section.id }}"
+  style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+>
+  <div class="page-width">
+    <div class="split{% if section.settings.reverse %} split--reverse{% endif %}{% if section.settings.wide_media %} split--wide-media{% endif %}">
+      <div class="split__media media media--{{ section.settings.image_ratio }}{% if settings.anim_image_zoom %} zoom-media{% endif %}" data-reveal="mask">
+        {% render 'media-fallback',
+          image: section.settings.image,
+          asset: section.settings.fallback_image,
+          placeholder: 'lifestyle-1',
+          alt: section.settings.image.alt,
+          widths: '400, 600, 900, 1200, 1600',
+          sizes: '(min-width: 750px) 50vw, 100vw'
+        %}
+      </div>
+
+      <div class="split__content{% if section.settings.align == 'center' %} split--center{% endif %}" data-reveal-group>
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            {%- when 'eyebrow' -%}
+              <span class="eyebrow" data-reveal="rise" {{ block.shopify_attributes }}>{{ block.settings.text }}</span>
+
+            {%- when 'heading' -%}
+              <h2 class="{{ block.settings.size }}" data-reveal="rise" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </h2>
+
+            {%- when 'text' -%}
+              <div class="rte {% if block.settings.large %}text-lg{% endif %} {% if block.settings.muted %}text-muted{% endif %}" data-reveal="rise" style="max-width: 52ch;" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+
+            {%- when 'list' -%}
+              <ul class="stack" style="gap: 0.9rem;" data-reveal="rise" {{ block.shopify_attributes }}>
+                {%- assign items = block.settings.items | newline_to_br | split: '<br />' -%}
+                {%- for item in items -%}
+                  {%- if item != blank -%}
+                    <li class="row" style="gap: 1rem; align-items: flex-start;">
+                      <span style="color: var(--c-accent); width: 1.8rem; flex-shrink: 0;">
+                        {% render 'icon', name: 'check' %}
+                      </span>
+                      <span>{{ item | strip }}</span>
+                    </li>
+                  {%- endif -%}
+                {%- endfor -%}
+              </ul>
+
+            {%- when 'stats' -%}
+              <div class="grid grid--3" style="width: 100%;" data-reveal="rise" {{ block.shopify_attributes }}>
+                <div class="stat">
+                  <span class="stat__value">{{ block.settings.value_1 }}</span>
+                  <span class="stat__label">{{ block.settings.label_1 }}</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__value">{{ block.settings.value_2 }}</span>
+                  <span class="stat__label">{{ block.settings.label_2 }}</span>
+                </div>
+                <div class="stat">
+                  <span class="stat__value">{{ block.settings.value_3 }}</span>
+                  <span class="stat__label">{{ block.settings.label_3 }}</span>
+                </div>
+              </div>
+
+            {%- when 'button' -%}
+              <a
+                class="btn{% if block.settings.style == 'secondary' %} btn--secondary{% elsif block.settings.style == 'ghost' %} btn--ghost link-arrow{% endif %}"
+                href="{{ block.settings.link | default: routes.all_products_collection_url }}"
+                data-reveal="rise"
+                {{ block.shopify_attributes }}
+              >
+                {{ block.settings.label }}
+                {%- if block.settings.style == 'ghost' -%}
+                  {% render 'icon', name: 'arrow-right' %}
+                {%- endif -%}
+              </a>
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Image with text",
+  "class": "image-with-text-section",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    {
+      "type": "text",
+      "id": "fallback_image",
+      "label": "Fallback asset filename",
+      "info": "Used before you upload your own image.",
+      "default": "feature-1.jpg"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "label": "Image ratio",
+      "options": [
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Portrait" },
+        { "value": "tall", "label": "Tall" },
+        { "value": "wide", "label": "Wide" }
+      ],
+      "default": "portrait"
+    },
+    { "type": "checkbox", "id": "reverse", "label": "Image on the right", "default": false },
+    { "type": "checkbox", "id": "wide_media", "label": "Wider image column", "default": false },
+    {
+      "type": "select",
+      "id": "align",
+      "label": "Text alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Centre" }
+      ],
+      "default": "left"
+    },
+    { "type": "header", "content": "Appearance" },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Colour scheme",
+      "options": [
+        { "value": "light", "label": "Light" },
+        { "value": "dark", "label": "Dark" },
+        { "value": "accent", "label": "Accent" }
+      ],
+      "default": "light"
+    },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Top padding", "default": 80 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 160, "step": 4, "unit": "px", "label": "Bottom padding", "default": 80 }
+  ],
+  "blocks": [
+    {
+      "type": "eyebrow",
+      "name": "Eyebrow",
+      "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "Our making" }]
+    },
+    {
+      "type": "heading",
+      "name": "Heading",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Cut in small runs, close to home" },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Size",
+          "options": [
+            { "value": "h3", "label": "Small" },
+            { "value": "h2", "label": "Medium" },
+            { "value": "h1", "label": "Large" }
+          ],
+          "default": "h2"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Every piece begins as a single sample. We make what we can finish well — fifty of a shirt, not five thousand — and we tell you exactly where each fabric came from.</p>"
+        },
+        { "type": "checkbox", "id": "large", "label": "Larger text", "default": false },
+        { "type": "checkbox", "id": "muted", "label": "Muted colour", "default": true }
+      ]
+    },
+    {
+      "type": "list",
+      "name": "Checklist",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "items",
+          "label": "Items",
+          "info": "One per line.",
+          "default": "Certified organic and deadstock fabrics\nCut and sewn in Portugal and the UK\nRepairs offered free, for life"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "name": "Statistics",
+      "settings": [
+        { "type": "text", "id": "value_1", "label": "Value 1", "default": "12" },
+        { "type": "text", "id": "label_1", "label": "Label 1", "default": "Makers" },
+        { "type": "text", "id": "value_2", "label": "Value 2", "default": "94%" },
+        { "type": "text", "id": "label_2", "label": "Label 2", "default": "Natural fibre" },
+        { "type": "text", "id": "value_3", "label": "Value 3", "default": "8yr" },
+        { "type": "text", "id": "label_3", "label": "Label 3", "default": "Average life" }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Read our story" },
+        { "type": "url", "id": "link", "label": "Link" },
+        {
+          "type": "select",
+          "id": "style",
+          "label": "Style",
+          "options": [
+            { "value": "primary", "label": "Solid" },
+            { "value": "secondary", "label": "Outline" },
+            { "value": "ghost", "label": "Text link" }
+          ],
+          "default": "secondary"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image with text",
+      "blocks": [
+        { "type": "eyebrow" },
+        { "type": "heading" },
+        { "type": "text" },
+        { "type": "list" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}

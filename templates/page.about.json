@@ -1,0 +1,194 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-banner",
+      "settings": {
+        "fallback_image": "hero-2.jpg",
+        "eyebrow": "Since 2019",
+        "heading": "A small studio, on purpose",
+        "heading_size": "h1",
+        "text": "<p>Twelve people, two workshops, and a stubborn belief that a wardrobe should get better with age.</p>",
+        "button_label": "",
+        "button_label_2": "",
+        "height": "md",
+        "position_v": "center",
+        "position_h": "center",
+        "text_color": "light",
+        "overlay_opacity": 38,
+        "parallax": true,
+        "show_scroll_cue": false
+      }
+    },
+    "intro": {
+      "type": "rich-text",
+      "blocks": {
+        "r1": { "type": "eyebrow", "settings": { "text": "Why we started" } },
+        "r2": {
+          "type": "heading",
+          "settings": { "text": "We got tired of replacing things", "size": "h2" }
+        },
+        "r3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sayso Style began in a back room with one pattern, one fabric roll, and a question we could not shake: what would clothing look like if it were designed to be kept rather than replaced? Everything since has been an answer to that.</p>"
+          }
+        }
+      },
+      "block_order": ["r1", "r2", "r3"],
+      "settings": {
+        "align": "center",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 40
+      }
+    },
+    "makers": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "eyebrow", "settings": { "text": "The workshops" } },
+        "b2": { "type": "heading", "settings": { "text": "Two rooms, named on the label", "size": "h2" } },
+        "b3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our knitwear is made outside Porto by a family workshop we have used since the first season. Our tailoring is cut in east London, ten minutes from the studio. We visit both every season, and every product page tells you which one made the piece.</p>",
+            "large": false,
+            "muted": true
+          }
+        },
+        "b4": {
+          "type": "stats",
+          "settings": {
+            "value_1": "12",
+            "label_1": "Makers",
+            "value_2": "94%",
+            "label_2": "Natural fibre",
+            "value_3": "8yr",
+            "label_3": "Average life"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "fallback_image": "feature-2.jpg",
+        "image_ratio": "portrait",
+        "reverse": false,
+        "wide_media": false,
+        "align": "left",
+        "color_scheme": "light",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
+    "materials": {
+      "type": "image-with-text",
+      "blocks": {
+        "b1": { "type": "eyebrow", "settings": { "text": "The cloth" } },
+        "b2": { "type": "heading", "settings": { "text": "Fewer fabrics, better ones", "size": "h2" } },
+        "b3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We work with a short list of mills and buy deadstock wherever the quantity allows. It limits what we can make, which is the point — scarcity keeps the runs small and the standard high.</p>",
+            "large": false,
+            "muted": true
+          }
+        },
+        "b4": {
+          "type": "list",
+          "settings": {
+            "items": "Certified organic cotton and linen\nTraceable merino from mulesing-free flocks\nDeadstock wool, rescued by the roll\nNo virgin polyester, ever"
+          }
+        }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "fallback_image": "feature-1.jpg",
+        "image_ratio": "portrait",
+        "reverse": true,
+        "wide_media": false,
+        "align": "left",
+        "color_scheme": "light",
+        "padding_top": 56,
+        "padding_bottom": 96
+      }
+    },
+    "promise": {
+      "type": "icon-row",
+      "blocks": {
+        "i1": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "heading": "Mended, not replaced",
+            "text": "Free repairs for as long as you own it."
+          }
+        },
+        "i2": {
+          "type": "item",
+          "settings": {
+            "icon": "leaf",
+            "heading": "Natural first",
+            "text": "94% of what we make is a natural fibre."
+          }
+        },
+        "i3": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "heading": "Carbon-neutral shipping",
+            "text": "Offset on every order, at our cost."
+          }
+        },
+        "i4": {
+          "type": "item",
+          "settings": {
+            "icon": "check",
+            "heading": "Priced in the open",
+            "text": "Cost breakdowns on request, any piece."
+          }
+        }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"],
+      "settings": {
+        "color_scheme": "accent",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "gallery": {
+      "type": "gallery",
+      "blocks": {
+        "g1": { "type": "image", "settings": { "wide": true, "caption": "Cutting room" } },
+        "g2": { "type": "image", "settings": {} },
+        "g3": { "type": "image", "settings": {} },
+        "g4": { "type": "image", "settings": {} },
+        "g5": { "type": "image", "settings": {} },
+        "g6": { "type": "image", "settings": {} }
+      },
+      "block_order": ["g1", "g2", "g3", "g4", "g5", "g6"],
+      "settings": {
+        "eyebrow": "The studio",
+        "heading": "Where it happens",
+        "handle": "",
+        "button_label": "",
+        "color_scheme": "light",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {
+        "eyebrow": "Letters",
+        "heading": "Follow the making",
+        "heading_size": "h2",
+        "text": "<p>Studio notes, new work and restocks, roughly once a month.</p>",
+        "button_label": "Sign up",
+        "disclaimer": "Unsubscribe any time.",
+        "color_scheme": "dark",
+        "padding_top": 96,
+        "padding_bottom": 96
+      }
+    }
+  },
+  "order": ["hero", "intro", "makers", "materials", "promise", "gallery", "newsletter"]
+}
