@@ -27,7 +27,16 @@
           <span class="eyebrow" data-reveal="rise">{{ section.settings.eyebrow }}</span>
         {%- endif -%}
 
-        <h2 data-reveal="rise">{{ target.title | default: 'onboarding.product_title' | t }}</h2>
+        {%- liquid
+          # Do not chain `| default: 'key' | t` — `t` would translate the real
+          # product title and emit "Translation missing".
+          if target.title != blank
+            assign product_heading = target.title
+          else
+            assign product_heading = 'onboarding.product_title' | t
+          endif
+        -%}
+        <h2 data-reveal="rise">{{ product_heading }}</h2>
 
         <div data-reveal="rise">
           {% render 'price', product: target, use_variant: true %}

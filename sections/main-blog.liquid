@@ -6,7 +6,16 @@
           {%- if section.settings.eyebrow != blank -%}
             <span class="eyebrow">{{ section.settings.eyebrow }}</span>
           {%- endif -%}
-          <h1>{{ blog.title | default: 'sections.blog.title' | t }}</h1>
+          {%- liquid
+            # Do not chain `| default: 'key' | t` — `t` would translate the
+            # real title and emit "Translation missing".
+            if blog.title != blank
+              assign blog_heading = blog.title
+            else
+              assign blog_heading = 'sections.blog.title' | t
+            endif
+          -%}
+          <h1>{{ blog_heading }}</h1>
           {%- if section.settings.text != blank -%}
             <div class="rte text-muted" style="margin-top: 1rem;">{{ section.settings.text }}</div>
           {%- endif -%}

@@ -39,10 +39,16 @@
       assign heading_font = settings.font_heading
     -%}
 
-    {{ body_font | font_face: font_display: 'swap' }}
-    {{ body_font_bold | font_face: font_display: 'swap' }}
-    {{ body_font_italic | font_face: font_display: 'swap' }}
-    {{ heading_font | font_face: font_display: 'swap' }}
+    {%- comment -%}
+      font_face returns bare CSS, not a <style> block, so it must be wrapped.
+      Left unwrapped it prints as visible text and closes <head> early.
+    {%- endcomment -%}
+    {% style %}
+      {{ body_font | font_face: font_display: 'swap' }}
+      {{ body_font_bold | font_face: font_display: 'swap' }}
+      {{ body_font_italic | font_face: font_display: 'swap' }}
+      {{ heading_font | font_face: font_display: 'swap' }}
+    {% endstyle %}
 
     {% render 'css-variables' %}
 

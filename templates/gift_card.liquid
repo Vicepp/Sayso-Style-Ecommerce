@@ -8,8 +8,10 @@
 
     {{ content_for_header }}
 
-    {{ settings.font_body | font_face: font_display: 'swap' }}
-    {{ settings.font_heading | font_face: font_display: 'swap' }}
+    {% style %}
+      {{ settings.font_body | font_face: font_display: 'swap' }}
+      {{ settings.font_heading | font_face: font_display: 'swap' }}
+    {% endstyle %}
 
     {% render 'css-variables' %}
     {{ 'base.css' | asset_url | stylesheet_tag }}

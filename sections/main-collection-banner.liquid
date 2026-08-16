@@ -29,8 +29,17 @@
         </nav>
       {%- endif -%}
 
+      {%- liquid
+        # Do not chain `| default: 'key' | t` — `t` would translate the real
+        # collection title and emit "Translation missing".
+        if collection.title != blank
+          assign collection_heading = collection.title
+        else
+          assign collection_heading = 'sections.collection.title' | t
+        endif
+      -%}
       <h1 class="{{ section.settings.heading_size }}" data-reveal="rise">
-        {{ collection.title | default: 'sections.collection.title' | t }}
+        {{ collection_heading }}
       </h1>
 
       {%- if section.settings.show_description and collection.description != blank -%}
