@@ -8,3 +8,6 @@ Thumbs.db
 .vscode/
 .idea/
 /tmp/
+
+# Packaged theme zips (rebuild with: shopify theme package)
+*.zip
