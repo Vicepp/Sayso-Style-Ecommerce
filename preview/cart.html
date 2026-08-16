@@ -1,0 +1,143 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Cart — Sayso Style preview</title>
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/animations.css">
+    <link rel="stylesheet" href="../assets/components.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+
+  <body class="template-cart btn-square labels-upper">
+    <a class="skip-link btn" href="#MainContent">Skip to content</a>
+
+    <main id="MainContent" class="main" tabindex="-1">
+      <section class="section" id="MainCart">
+        <div class="page-width">
+          <div class="section-head">
+            <div class="section-head__text">
+              <h1>Your bag</h1>
+              <p class="text-muted">2 items</p>
+            </div>
+            <a class="link-arrow" href="collection.html">Continue shopping<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></svg></a>
+          </div>
+
+          <div class="split" style="align-items:start;grid-template-columns:1.6fr 1fr;">
+            <div>
+              <div class="ship-bar" style="margin-bottom:2.4rem;">
+                <span>You are $79.00 away from complimentary shipping</span>
+                <span class="ship-bar__track"><span class="ship-bar__fill" style="width:47%"></span></span>
+              </div>
+
+              <table class="cart-table">
+                <thead>
+                  <tr><th colspan="2">Product</th><th>Quantity</th><th>Total</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="line-item" style="display:grid;grid-template-columns:10rem 1fr;align-items:start;">
+                    <td style="grid-row:span 2;">
+                      <a class="line-item__media media media--portrait" href="product.html" tabindex="-1" aria-hidden="true">
+                        <img src="../assets/gallery-2.jpg" alt="" loading="lazy" width="280" height="360">
+                      </a>
+                    </td>
+                    <td colspan="3">
+                      <div class="line-item__info">
+                        <a class="line-item__title" href="product.html">The Merino Crew</a>
+                        <span class="line-item__variant">Charcoal / M</span>
+                        <div class="line-item__foot">
+                          <quantity-input class="qty">
+                            <button type="button" name="minus" aria-label="Decrease quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+                            <input type="number" value="1" min="0">
+                            <button type="button" name="plus" aria-label="Increase quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+                          </quantity-input>
+                          <div style="text-align:right;">
+                            <div>$185.00</div>
+                            <button type="button" class="line-item__remove">Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr class="line-item" style="display:grid;grid-template-columns:10rem 1fr;align-items:start;">
+                    <td style="grid-row:span 2;">
+                      <a class="line-item__media media media--portrait" href="product.html" tabindex="-1" aria-hidden="true">
+                        <img src="../assets/gallery-4.jpg" alt="" loading="lazy" width="280" height="360">
+                      </a>
+                    </td>
+                    <td colspan="3">
+                      <div class="line-item__info">
+                        <a class="line-item__title" href="product.html">Linen Shirt, Oversized</a>
+                        <span class="line-item__variant">Chalk / S</span>
+                        <span class="line-item__discount">Summer 20 (−$29.00)</span>
+                        <div class="line-item__foot">
+                          <quantity-input class="qty">
+                            <button type="button" name="minus" aria-label="Decrease quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+                            <input type="number" value="1" min="0">
+                            <button type="button" name="plus" aria-label="Increase quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+                          </quantity-input>
+                          <div style="text-align:right;">
+                            <div>$116.00</div>
+                            <s class="text-sm text-muted">$145.00</s>
+                            <button type="button" class="line-item__remove">Remove</button>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div class="field" style="margin-top:2.4rem;">
+                <label class="field__label" for="CartPageNote">Order note</label>
+                <textarea id="CartPageNote" class="textarea" placeholder="Gift wrapping, delivery instructions, anything else."></textarea>
+              </div>
+            </div>
+
+            <aside style="position:sticky;top:calc(var(--header-height) + 3rem);border:1px solid var(--c-line);padding:2.4rem;border-radius:var(--radius);">
+              <h2 class="h5" style="margin-bottom:1.6rem;">Total</h2>
+              <div class="cart-totals">
+                <div class="cart-totals__row"><span>Subtotal</span><span>$330.00</span></div>
+                <div class="cart-totals__row" style="color:var(--c-success);"><span>Summer 20</span><span>−$29.00</span></div>
+                <div class="cart-totals__row cart-totals__row--total"><span>Total</span><span>$301.00 USD</span></div>
+              </div>
+              <div class="rte text-sm text-muted" style="margin-block:1.6rem;"><p>Shipping and taxes calculated at checkout.</p></div>
+              <button type="button" class="btn btn--full">Checkout</button>
+              <form class="row" style="margin-top:1.6rem;gap:.8rem;" onsubmit="return false;">
+                <label class="visually-hidden" for="CartDiscount">Discount code</label>
+                <input id="CartDiscount" class="input" type="text" placeholder="Discount code">
+                <button class="btn btn--secondary btn--small" type="submit">Apply</button>
+              </form>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cross-sell -->
+      <section class="section scheme-light" style="padding-top:0;padding-bottom:88px;">
+        <div class="page-width">
+          <div class="section-head" data-reveal="rise">
+            <div class="section-head__text"><span class="eyebrow">Before you go</span><h2 class="h3">Complete the look</h2></div>
+            <div class="carousel__nav">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4.5M10.5 6l-6 6 6 6"/></svg></button>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <carousel-element class="carousel">
+            <div class="carousel__track" data-carousel-track data-reveal-group>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-3.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Ribbed Wool Scarf</a></h3><div class="price"><span class="price__now">$95.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-5.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Wool Beanie</a></h3><div class="price"><span class="price__now">$68.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-6.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Wide Leg Trouser</a></h3><div class="price"><span class="price__now">$210.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-7.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Cable Knit Vest</a></h3><div class="price"><span class="price__now">$165.00</span></div></div></div>
+            </div>
+          </carousel-element>
+        </div>
+      </section>
+    </main>
+
+    <script src="preview-chrome.js" defer></script>
+    <script src="../assets/theme.js" defer></script>
+  </body>
+</html>

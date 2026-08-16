@@ -1,0 +1,179 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Product — Sayso Style preview</title>
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/animations.css">
+    <link rel="stylesheet" href="../assets/components.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+
+  <body class="template-product btn-square labels-upper">
+    <a class="skip-link btn" href="#MainContent">Skip to content</a>
+
+    <main id="MainContent" class="main" tabindex="-1">
+      <section class="section">
+        <div class="page-width">
+          <nav class="text-sm text-muted" aria-label="Breadcrumb" style="margin-bottom:2.4rem;">
+            <a class="hover-line" href="index.html">Sayso Style</a><span> / </span>
+            <a class="hover-line" href="collection.html">Knitwear</a><span> / </span>
+            <span>The Merino Crew</span>
+          </nav>
+
+          <div class="product">
+            <!-- Gallery: stacked, matching the shipped default -->
+            <div class="product__gallery" data-gallery="stacked">
+              <div class="product__media media media--portrait" data-reveal="rise">
+                <img src="../assets/gallery-2.jpg" alt="The Merino Crew" width="1400" height="1800">
+              </div>
+              <div class="product__media media media--portrait" data-reveal="rise">
+                <img src="../assets/gallery-4.jpg" alt="The Merino Crew, detail" loading="lazy" width="1400" height="1800">
+              </div>
+              <div class="product__media media media--portrait" data-reveal="rise">
+                <img src="../assets/gallery-6.jpg" alt="The Merino Crew, worn" loading="lazy" width="1400" height="1800">
+              </div>
+            </div>
+
+            <!-- Info column -->
+            <div class="product__info" data-reveal-group>
+              <span class="eyebrow" data-reveal="rise">Sayso Style</span>
+              <h1 class="product__title h2" data-reveal="rise">The Merino Crew</h1>
+
+              <div class="product__price" data-reveal="rise">
+                <div class="price"><span class="price__now">$185.00</span></div>
+                <span class="text-sm text-muted">Shipping and taxes calculated at checkout.</span>
+              </div>
+
+              <div class="row" data-reveal="rise">
+                <span class="stars" role="img" aria-label="5 out of 5 stars">
+                  <svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.6 6 .8-4.4 4.2 1.1 6.1-5.3-3-5.3 3 1.1-6.1L3.4 9.9l6-.8L12 3.5Z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.6 6 .8-4.4 4.2 1.1 6.1-5.3-3-5.3 3 1.1-6.1L3.4 9.9l6-.8L12 3.5Z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.6 6 .8-4.4 4.2 1.1 6.1-5.3-3-5.3 3 1.1-6.1L3.4 9.9l6-.8L12 3.5Z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.6 6 .8-4.4 4.2 1.1 6.1-5.3-3-5.3 3 1.1-6.1L3.4 9.9l6-.8L12 3.5Z"/></svg>
+                  <svg viewBox="0 0 24 24"><path d="m12 3.5 2.6 5.6 6 .8-4.4 4.2 1.1 6.1-5.3-3-5.3 3 1.1-6.1L3.4 9.9l6-.8L12 3.5Z"/></svg>
+                </span>
+                <span class="text-sm text-muted">42 reviews</span>
+              </div>
+
+              <div class="rte text-muted" data-reveal="rise">
+                <p>A dense, dry-handled merino crew knitted in Portugal from mulesing-free fleece. Ribbed at the cuff and hem so it holds its shape through a decade of washing.</p>
+              </div>
+
+              <!-- Variant picker -->
+              <div class="stack" data-reveal="rise">
+                <fieldset class="variant-group">
+                  <legend class="visually-hidden">Colour</legend>
+                  <div class="variant-group__head"><span>Colour</span><span class="variant-group__value">Charcoal</span></div>
+                  <div class="variant-options">
+                    <div class="variant-option variant-option--swatch">
+                      <input type="radio" id="c1" name="colour" checked>
+                      <label for="c1" style="--swatch:#2c2c2c;" title="Charcoal">Charcoal</label>
+                    </div>
+                    <div class="variant-option variant-option--swatch">
+                      <input type="radio" id="c2" name="colour">
+                      <label for="c2" style="--swatch:#c9bda8;" title="Oat">Oat</label>
+                    </div>
+                    <div class="variant-option variant-option--swatch">
+                      <input type="radio" id="c3" name="colour">
+                      <label for="c3" style="--swatch:#7d4b3a;" title="Chestnut">Chestnut</label>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <fieldset class="variant-group">
+                  <legend class="visually-hidden">Size</legend>
+                  <div class="variant-group__head">
+                    <span>Size</span>
+                    <span class="variant-group__value"><a class="link-underline" href="faq.html">Size guide</a></span>
+                  </div>
+                  <div class="variant-options">
+                    <div class="variant-option"><input type="radio" id="s1" name="size"><label for="s1">XS</label></div>
+                    <div class="variant-option"><input type="radio" id="s2" name="size"><label for="s2">S</label></div>
+                    <div class="variant-option"><input type="radio" id="s3" name="size" checked><label for="s3">M</label></div>
+                    <div class="variant-option"><input type="radio" id="s4" name="size"><label for="s4">L</label></div>
+                    <div class="variant-option"><input type="radio" id="s5" name="size" disabled><label for="s5">XL</label></div>
+                  </div>
+                </fieldset>
+              </div>
+
+              <span class="stock stock--low" data-reveal="rise">
+                <span class="stock__dot pulse-dot"></span>
+                Only 4 left
+              </span>
+
+              <!-- Buy -->
+              <div class="product__buy" data-reveal="rise">
+                <div class="product__buy-row">
+                  <quantity-input class="qty">
+                    <button type="button" name="minus" aria-label="Decrease quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M5 12h14"/></svg></button>
+                    <input type="number" value="1" min="1">
+                    <button type="button" name="plus" aria-label="Increase quantity"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></button>
+                  </quantity-input>
+                  <button class="btn" type="button" data-drawer-open="CartDrawer"><span>Add to bag</span></button>
+                </div>
+                <button class="btn btn--secondary btn--full" type="button">Buy it now</button>
+              </div>
+
+              <!-- Collapsibles -->
+              <accordion-element data-single="false" data-reveal="rise">
+                <div class="accordion">
+                  <button class="accordion__summary" type="button" aria-expanded="false"><span>Details and care</span><span class="accordion__icon" aria-hidden="true"></span></button>
+                  <div class="accordion__panel"><div><div class="accordion__content rte">
+                    <ul><li>100% mulesing-free merino, 12 gauge</li><li>Knitted and finished outside Porto</li><li>Cold hand wash, dry flat, never tumble</li></ul>
+                  </div></div></div>
+                </div>
+                <div class="accordion">
+                  <button class="accordion__summary" type="button" aria-expanded="false"><span>Size and fit</span><span class="accordion__icon" aria-hidden="true"></span></button>
+                  <div class="accordion__panel"><div><div class="accordion__content rte">
+                    <p>Model is 178cm and wears a size M. Garment measurements are listed flat, in centimetres. Between sizes? Size down in knitwear.</p>
+                  </div></div></div>
+                </div>
+                <div class="accordion">
+                  <button class="accordion__summary" type="button" aria-expanded="false"><span>Shipping and returns</span><span class="accordion__icon" aria-hidden="true"></span></button>
+                  <div class="accordion__panel"><div><div class="accordion__content rte">
+                    <p>Dispatched within two working days. Complimentary shipping over $150. Thirty day returns on unworn pieces with tags attached.</p>
+                  </div></div></div>
+                </div>
+              </accordion-element>
+
+              <!-- Reassurance -->
+              <div class="product__meta" data-reveal="rise">
+                <span class="product__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h11v9h-11z"/><path d="M13.5 10h4l3 3v2.5h-7z"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></svg>Free shipping over $150</span>
+                <span class="product__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5h11a5.5 5.5 0 0 1 0 11H9"/><path d="m7.5 4.5-4 4 4 4"/></svg>30 day returns</span>
+                <span class="product__meta-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4c0 9-5.5 14-12 14a6 6 0 0 1 0-12c4 0 7-1 12-2Z"/><path d="M4.5 19.5C8 15 12 12 17 9.5"/></svg>Repairs for life</span>
+              </div>
+
+              <span class="text-sm text-muted" data-reveal="fade">SKU: SS-MC-CHR-M</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recommendations -->
+      <section class="section scheme-light" style="padding-top:88px;padding-bottom:88px;">
+        <div class="page-width">
+          <div class="section-head" data-reveal="rise">
+            <div class="section-head__text"><h2 class="h3">Wear it with</h2></div>
+            <div class="carousel__nav">
+              <button class="carousel__btn" type="button" data-carousel-prev aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12H4.5M10.5 6l-6 6 6 6"/></svg></button>
+              <button class="carousel__btn" type="button" data-carousel-next aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <carousel-element class="carousel">
+            <div class="carousel__track" data-carousel-track data-reveal-group>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-6.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Wide Leg Trouser</a></h3><div class="price"><span class="price__now">$210.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-8.jpg" alt="" loading="lazy" width="900" height="1200"></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">The Wool Overcoat</a></h3><div class="price"><span class="price__now">$540.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-5.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Cotton Twill Cap</a></h3><div class="price"><span class="price__now">$65.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-3.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Ribbed Wool Scarf</a></h3><div class="price"><span class="price__now">$95.00</span></div></div></div>
+            </div>
+          </carousel-element>
+        </div>
+      </section>
+    </main>
+
+    <script src="preview-chrome.js" defer></script>
+    <script src="../assets/theme.js" defer></script>
+  </body>
+</html>

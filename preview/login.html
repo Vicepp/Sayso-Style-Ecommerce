@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Log in — Sayso Style preview</title>
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/animations.css">
+    <link rel="stylesheet" href="../assets/components.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+
+  <body class="template-customers-login btn-square labels-upper">
+    <a class="skip-link btn" href="#MainContent">Skip to content</a>
+
+    <main id="MainContent" class="main" tabindex="-1">
+      <section class="section">
+        <div class="page-width">
+          <div class="auth-card" data-reveal-group>
+            <h1 class="h3 text-center" data-reveal="rise">Log in</h1>
+
+            <form class="stack" style="margin-top:2.4rem;" onsubmit="return false;">
+              <div class="field">
+                <label class="field__label" for="LoginEmail">Email</label>
+                <input id="LoginEmail" class="input" type="email" autocomplete="email" required>
+              </div>
+              <div class="field">
+                <label class="field__label" for="LoginPassword">Password</label>
+                <input id="LoginPassword" class="input" type="password" autocomplete="current-password" required>
+              </div>
+              <a class="btn btn--full" href="account.html">Log in</a>
+              <button class="btn btn--ghost" type="button">Forgot your password?</button>
+            </form>
+
+            <hr style="margin-block:2.4rem;">
+
+            <div class="text-center stack" style="gap:1rem;">
+              <span class="text-muted text-sm">New here?</span>
+              <a class="btn btn--secondary btn--full" href="login.html">Create an account</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="preview-chrome.js" defer></script>
+    <script src="../assets/theme.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Account — Sayso Style preview</title>
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/animations.css">
+    <link rel="stylesheet" href="../assets/components.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+
+  <body class="template-customers-account btn-square labels-upper">
+    <a class="skip-link btn" href="#MainContent">Skip to content</a>
+
+    <main id="MainContent" class="main" tabindex="-1">
+      <section class="section">
+        <div class="page-width">
+          <div class="section-head">
+            <div class="section-head__text">
+              <span class="eyebrow">Account</span>
+              <h1 class="h2">Welcome back, Chris</h1>
+            </div>
+            <a class="link-arrow" href="login.html">Log out<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></svg></a>
+          </div>
+
+          <div class="account-layout">
+            <nav class="account-nav" aria-label="Account">
+              <a class="is-active" href="account.html">Order history</a>
+              <a href="account.html">Addresses</a>
+              <a href="login.html">Log out</a>
+            </nav>
+
+            <div data-reveal="rise">
+              <div style="overflow-x:auto;">
+                <table class="order-table">
+                  <thead>
+                    <tr><th>Order</th><th>Date</th><th>Payment</th><th>Fulfilment</th><th>Total</th><th></th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>#1042</td><td>02 Aug 2026</td>
+                      <td><span class="status-pill">Paid</span></td>
+                      <td><span class="status-pill">Fulfilled</span></td>
+                      <td>$301.00</td>
+                      <td><a class="link-underline" href="account.html">View order</a></td>
+                    </tr>
+                    <tr>
+                      <td>#0987</td><td>14 Jun 2026</td>
+                      <td><span class="status-pill">Paid</span></td>
+                      <td><span class="status-pill">Fulfilled</span></td>
+                      <td>$185.00</td>
+                      <td><a class="link-underline" href="account.html">View order</a></td>
+                    </tr>
+                    <tr>
+                      <td>#0851</td><td>28 Mar 2026</td>
+                      <td><span class="status-pill">Refunded</span></td>
+                      <td><span class="status-pill">Returned</span></td>
+                      <td>$145.00</td>
+                      <td><a class="link-underline" href="account.html">View order</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div style="margin-top:4rem;padding-top:2.4rem;border-top:1px solid var(--c-line);">
+                <h2 class="h5">Account details</h2>
+                <div class="rte text-muted text-sm" style="margin-top:1rem;">
+                  <p>Chris Vice<br>18 Marlow Yard<br>London E2 8HD<br>United Kingdom</p>
+                </div>
+                <a class="link-arrow" href="account.html" style="margin-top:1.2rem;">View addresses<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15.5M13.5 6l6 6-6 6"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="preview-chrome.js" defer></script>
+    <script src="../assets/theme.js" defer></script>
+  </body>
+</html>

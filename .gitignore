@@ -8,7 +8,3 @@ Thumbs.db
 .vscode/
 .idea/
 /tmp/
-
-# Local design preview. Not part of the theme; Shopify must never sync it.
-# Track it anyway with: git add -f preview/
-preview/

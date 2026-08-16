@@ -1,0 +1,159 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <title>Collection — Sayso Style preview</title>
+    <link rel="stylesheet" href="../assets/base.css">
+    <link rel="stylesheet" href="../assets/animations.css">
+    <link rel="stylesheet" href="../assets/components.css">
+    <link rel="stylesheet" href="preview.css">
+  </head>
+
+  <body class="template-collection btn-square labels-upper">
+    <a class="skip-link btn" href="#MainContent">Skip to content</a>
+
+    <main id="MainContent" class="main" tabindex="-1">
+      <!-- Banner over the collection image -->
+      <section class="scheme-light">
+        <div class="collection-hero collection-hero--image">
+          <div class="collection-hero__media parallax-media" data-parallax="0.14">
+            <img src="../assets/collection-1.jpg" alt="Knitwear" width="2400" height="1200">
+          </div>
+          <div class="page-width">
+            <div class="collection-hero" data-reveal-group>
+              <nav class="text-sm" style="opacity:.75;" aria-label="Breadcrumb" data-reveal="fade">
+                <a class="hover-line" href="index.html">Sayso Style</a><span> / </span>
+                <a class="hover-line" href="collections.html">Collections</a><span> / </span>
+                <span>Knitwear</span>
+              </nav>
+              <h1 class="h1" data-reveal="rise">Knitwear</h1>
+              <div class="rte" data-reveal="rise" style="max-width:62ch;margin-inline:auto;">
+                <p>Merino, lambswool and reclaimed cashmere, knitted in small runs outside Porto. Built to pill less, hold shape, and be mended rather than replaced.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-width">
+          <!-- Facets -->
+          <div id="CollectionFacets">
+            <form class="facets" onsubmit="return false;">
+              <div class="facet">
+                <button class="facet__toggle" type="button" data-facet-toggle aria-expanded="false">
+                  Size <span>(1)</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg>
+                </button>
+                <div class="facet__panel">
+                  <label class="facet__option"><input type="checkbox"><span>XS</span><span class="facet__option-count">4</span></label>
+                  <label class="facet__option"><input type="checkbox" checked><span>S</span><span class="facet__option-count">9</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>M</span><span class="facet__option-count">11</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>L</span><span class="facet__option-count">8</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>XL</span><span class="facet__option-count">3</span></label>
+                </div>
+              </div>
+
+              <div class="facet">
+                <button class="facet__toggle" type="button" data-facet-toggle aria-expanded="false">
+                  Colour
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg>
+                </button>
+                <div class="facet__panel">
+                  <label class="facet__option"><input type="checkbox"><span>Charcoal</span><span class="facet__option-count">6</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>Oat</span><span class="facet__option-count">5</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>Chestnut</span><span class="facet__option-count">3</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>Chalk</span><span class="facet__option-count">4</span></label>
+                </div>
+              </div>
+
+              <div class="facet">
+                <button class="facet__toggle" type="button" data-facet-toggle aria-expanded="false">
+                  Fabric
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg>
+                </button>
+                <div class="facet__panel">
+                  <label class="facet__option"><input type="checkbox"><span>Merino</span><span class="facet__option-count">7</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>Lambswool</span><span class="facet__option-count">4</span></label>
+                  <label class="facet__option"><input type="checkbox"><span>Cashmere</span><span class="facet__option-count">2</span></label>
+                </div>
+              </div>
+
+              <div class="facet">
+                <button class="facet__toggle" type="button" data-facet-toggle aria-expanded="false">
+                  Price
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></svg>
+                </button>
+                <div class="facet__panel">
+                  <div class="row" style="gap:.8rem;">
+                    <label class="field" style="flex:1;"><span class="field__label">From</span><input class="input" type="number" placeholder="0"></label>
+                    <label class="field" style="flex:1;"><span class="field__label">To</span><input class="input" type="number" placeholder="540"></label>
+                  </div>
+                </div>
+              </div>
+
+              <label class="facet" style="display:inline-flex;align-items:center;gap:.8rem;">
+                <span class="visually-hidden">Sort by</span>
+                <select class="select" style="min-height:3.8rem;padding-block:.6rem;font-size:1.25rem;">
+                  <option>Featured</option>
+                  <option>Best selling</option>
+                  <option>A–Z</option>
+                  <option>Price, low to high</option>
+                  <option>Price, high to low</option>
+                  <option>Newest first</option>
+                </select>
+              </label>
+
+              <span class="facets__count" id="CollectionCount">12 products</span>
+            </form>
+
+            <div class="active-facets">
+              <a class="active-facet" href="#">Size: S <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round"><path d="m5.5 5.5 13 13M18.5 5.5l-13 13"/></svg></a>
+              <a class="active-facet" href="#">Clear all</a>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div id="CollectionGrid">
+            <div class="grid grid--4" data-reveal-group>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-2.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__badges"><span class="badge badge--new">New</span></div><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">The Merino Crew</a></h3><div class="price"><span class="price__now">$185.00</span></div><div class="swatches"><span class="swatch" style="--swatch:#2c2c2c;"></span><span class="swatch" style="--swatch:#c9bda8;"></span><span class="swatch" style="--swatch:#7d4b3a;"></span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-4.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__badges"><span class="badge badge--sale">-20%</span></div><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Lambswool Cardigan</a></h3><div class="price price--on-sale"><span class="price__now">$156.00</span><s class="price__was">$195.00</s></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-6.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><span class="btn btn--small btn--full">Choose options</span></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Fisherman Rib Jumper</a></h3><div class="price"><span class="price__now">From $220.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-8.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__badges"><span class="badge badge--soldout">Sold out</span></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Cashmere Roll Neck</a></h3><div class="price"><span class="price__now">$395.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-1.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Merino Half-Zip</a></h3><div class="price"><span class="price__now">$225.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-3.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Ribbed Wool Scarf</a></h3><div class="price"><span class="price__now">$95.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-5.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Wool Beanie</a></h3><div class="price"><span class="price__now">$68.00</span></div></div></div>
+              <div class="card" data-reveal="rise"><a class="card__media media media--portrait zoom-media" href="product.html" tabindex="-1" aria-hidden="true"><img class="card__img" src="../assets/gallery-7.jpg" alt="" loading="lazy" width="900" height="1200"><div class="card__badges"><span class="badge badge--new">New</span></div><div class="card__quick"><button type="button" class="btn btn--small btn--full">Quick add</button></div></a><div class="card__info"><h3 class="card__title"><a class="card__link" href="product.html">Cable Knit Vest</a></h3><div class="price"><span class="price__now">$165.00</span></div></div></div>
+            </div>
+
+            <div class="text-center" style="margin-top:4rem;">
+              <button class="btn btn--secondary" type="button">Load more</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="section scheme-light" style="padding-top:88px;padding-bottom:88px;">
+        <div class="page-width page-width--narrow text-center">
+          <div class="stack" style="align-items:center;gap:1.6rem;" data-reveal-group>
+            <span class="eyebrow" data-reveal="rise">Letters</span>
+            <h2 class="h2" data-reveal="rise">First to know</h2>
+            <div class="rte text-lg text-muted" data-reveal="rise" style="max-width:48ch;"><p>Restock alerts and new arrivals, roughly once a month.</p></div>
+            <div data-reveal="rise" style="width:100%;display:flex;justify-content:center;">
+              <form class="newsletter-form" onsubmit="return false;">
+                <label class="visually-hidden" for="CNL">Email address</label>
+                <input id="CNL" class="input" type="email" placeholder="your@email.com">
+                <button class="btn" type="submit">Sign up</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="preview-chrome.js" defer></script>
+    <script src="../assets/theme.js" defer></script>
+  </body>
+</html>

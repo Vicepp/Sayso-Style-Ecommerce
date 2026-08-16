@@ -1,6 +1,12 @@
 extends: :default
 root: .
 
+# The local design preview is plain HTML, not Liquid, and is never synced
+# to Shopify. Keep it out of the linter.
+ignore:
+  - preview/**
+  - scripts/**
+
 TemplateLength:
   enabled: true
   max_length: 400
