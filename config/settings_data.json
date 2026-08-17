@@ -45,84 +45,138 @@
     "social_facebook": "",
     "social_pinterest": "https://pinterest.com/saysostyle",
     "social_youtube": "",
-    "predictive_search": true,
-    "sections": {
-      "announcement": {
-        "type": "announcement-bar",
-        "blocks": {
-          "a1": {
-            "type": "announcement",
-            "settings": {
-              "text": "Complimentary shipping on orders over $150",
-              "link": ""
-            }
-          },
-          "a2": {
-            "type": "announcement",
-            "settings": {
-              "text": "New season knitwear — now in store",
-              "link": "/collections/all"
-            }
-          },
-          "a3": {
-            "type": "announcement",
-            "settings": {
-              "text": "30 day returns, no questions asked",
-              "link": ""
-            }
-          }
-        },
-        "block_order": ["a1", "a2", "a3"],
-        "settings": {
-          "color_scheme": "dark",
-          "rotate": true,
-          "speed": 5
-        }
-      },
-      "header": {
-        "type": "header",
-        "settings": {
-          "menu": "main-menu",
-          "layout": "center",
-          "sticky": true,
-          "transparent_on_home": true,
-          "show_search": true,
-          "show_account": true
-        }
-      },
-      "footer": {
-        "type": "footer",
-        "blocks": {
-          "f1": {
-            "type": "menu",
-            "settings": { "heading": "Shop", "menu": "footer" }
-          },
-          "f2": {
-            "type": "text",
-            "settings": {
-              "heading": "The house",
-              "text": "<p>Sayso Style is a small studio making quiet, durable clothing in limited runs. Everything is cut in low volumes from deadstock and certified natural fibres.</p>"
-            }
-          },
-          "f3": {
-            "type": "newsletter",
-            "settings": {
-              "heading": "Letters",
-              "text": "<p>Occasional notes on new work, restocks and studio sales.</p>"
-            }
-          }
-        },
-        "block_order": ["f1", "f2", "f3"],
-        "settings": {
-          "color_scheme": "dark",
-          "show_social": true,
-          "show_payment_icons": true,
-          "show_locale_selector": true,
-          "copyright_text": "Sayso Style"
-        }
-      }
+    "predictive_search": true
+  },
+  "presets": {
+    "Chalk": {
+      "logo_width": 140,
+      "brand_tagline": "Considered clothing, made to last.",
+      "color_background": "#faf7f2",
+      "color_foreground": "#171512",
+      "color_muted": "#756e64",
+      "color_line": "#e3dcd2",
+      "color_accent": "#9a6f4e",
+      "color_dark_background": "#171512",
+      "color_dark_foreground": "#f6f1ea",
+      "color_dark_muted": "#a89f93",
+      "color_dark_line": "#332e28",
+      "color_sale": "#9c2f2f",
+      "color_success": "#2f6b46",
+      "font_heading": "playfair_display_n4",
+      "font_body": "assistant_n4",
+      "font_body_scale": 100,
+      "font_heading_scale": 100,
+      "heading_letter_spacing": -1,
+      "uppercase_labels": true,
+      "page_width": 1500,
+      "spacing_sections": 0,
+      "corner_radius": 0,
+      "button_style": "square",
+      "anim_reveal": true,
+      "anim_reveal_style": "rise",
+      "anim_speed": 700,
+      "anim_page_transition": true,
+      "anim_image_zoom": true,
+      "anim_sticky_header": true,
+      "anim_parallax": true,
+      "card_image_ratio": "portrait",
+      "card_hover_image": true,
+      "card_show_vendor": false,
+      "card_show_swatches": true,
+      "card_quick_add": true,
+      "cart_type": "drawer",
+      "cart_show_note": true,
+      "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
+      "free_shipping_bar": true,
+      "free_shipping_threshold": 150,
+      "predictive_search": true
     },
-    "content_for_index": []
+    "Ink": {
+      "logo_width": 140,
+      "brand_tagline": "Considered clothing, made to last.",
+      "color_background": "#f4f2ef",
+      "color_foreground": "#111111",
+      "color_muted": "#6b6b6b",
+      "color_line": "#dcd9d4",
+      "color_accent": "#1f4d3f",
+      "color_dark_background": "#0e0f0e",
+      "color_dark_foreground": "#f2f2f0",
+      "color_dark_muted": "#9c9c98",
+      "color_dark_line": "#262826",
+      "color_sale": "#8c2b2b",
+      "color_success": "#1f4d3f",
+      "font_heading": "playfair_display_n4",
+      "font_body": "assistant_n4",
+      "font_body_scale": 100,
+      "font_heading_scale": 105,
+      "heading_letter_spacing": -2,
+      "uppercase_labels": true,
+      "page_width": 1400,
+      "spacing_sections": 0,
+      "corner_radius": 0,
+      "button_style": "square",
+      "anim_reveal": true,
+      "anim_reveal_style": "mask",
+      "anim_speed": 800,
+      "anim_page_transition": true,
+      "anim_image_zoom": true,
+      "anim_sticky_header": true,
+      "anim_parallax": true,
+      "card_image_ratio": "tall",
+      "card_hover_image": true,
+      "card_show_vendor": true,
+      "card_show_swatches": true,
+      "card_quick_add": true,
+      "cart_type": "drawer",
+      "cart_show_note": true,
+      "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
+      "free_shipping_bar": true,
+      "free_shipping_threshold": 150,
+      "predictive_search": true
+    },
+    "Sand": {
+      "logo_width": 150,
+      "brand_tagline": "Considered clothing, made to last.",
+      "color_background": "#efe7db",
+      "color_foreground": "#2b241c",
+      "color_muted": "#7d7161",
+      "color_line": "#ddd1bf",
+      "color_accent": "#b4653a",
+      "color_dark_background": "#2b241c",
+      "color_dark_foreground": "#f4ece0",
+      "color_dark_muted": "#ad9f8c",
+      "color_dark_line": "#413729",
+      "color_sale": "#9c2f2f",
+      "color_success": "#4a6b3a",
+      "font_heading": "playfair_display_n4",
+      "font_body": "assistant_n4",
+      "font_body_scale": 105,
+      "font_heading_scale": 100,
+      "heading_letter_spacing": 0,
+      "uppercase_labels": false,
+      "page_width": 1600,
+      "spacing_sections": 0,
+      "corner_radius": 8,
+      "button_style": "pill",
+      "anim_reveal": true,
+      "anim_reveal_style": "fade",
+      "anim_speed": 600,
+      "anim_page_transition": true,
+      "anim_image_zoom": true,
+      "anim_sticky_header": true,
+      "anim_parallax": false,
+      "card_image_ratio": "square",
+      "card_hover_image": true,
+      "card_show_vendor": false,
+      "card_show_swatches": true,
+      "card_quick_add": true,
+      "cart_type": "drawer",
+      "cart_show_note": true,
+      "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
+      "free_shipping_bar": true,
+      "free_shipping_threshold": 150,
+      "predictive_search": true
+    }
   },
   "platform_customizations": {}
 }
