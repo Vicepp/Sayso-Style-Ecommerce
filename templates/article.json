@@ -11,6 +11,7 @@
     "more": {
       "type": "blog-posts",
       "settings": {
+        "blog": "news",
         "eyebrow": "Keep reading",
         "heading": "More from the journal",
         "posts_to_show": 3,

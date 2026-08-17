@@ -229,6 +229,7 @@
     "journal": {
       "type": "blog-posts",
       "settings": {
+        "blog": "news",
         "eyebrow": "Journal",
         "heading": "Reading",
         "posts_to_show": 3,
