@@ -1,52 +1,5 @@
 {
-  "current": {
-    "logo_width": 140,
-    "brand_tagline": "Considered clothing, made to last.",
-    "color_background": "#faf7f2",
-    "color_foreground": "#171512",
-    "color_muted": "#756e64",
-    "color_line": "#e3dcd2",
-    "color_accent": "#9a6f4e",
-    "color_dark_background": "#171512",
-    "color_dark_foreground": "#f6f1ea",
-    "color_dark_muted": "#a89f93",
-    "color_dark_line": "#332e28",
-    "color_sale": "#9c2f2f",
-    "color_success": "#2f6b46",
-    "font_heading": "playfair_display_n4",
-    "font_body": "assistant_n4",
-    "font_body_scale": 100,
-    "font_heading_scale": 100,
-    "heading_letter_spacing": -1,
-    "uppercase_labels": true,
-    "page_width": 1500,
-    "spacing_sections": 0,
-    "corner_radius": 0,
-    "button_style": "square",
-    "anim_reveal": true,
-    "anim_reveal_style": "rise",
-    "anim_speed": 700,
-    "anim_page_transition": true,
-    "anim_image_zoom": true,
-    "anim_sticky_header": true,
-    "anim_parallax": true,
-    "card_image_ratio": "portrait",
-    "card_hover_image": true,
-    "card_show_vendor": false,
-    "card_show_swatches": true,
-    "card_quick_add": true,
-    "cart_type": "drawer",
-    "cart_show_note": true,
-    "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
-    "free_shipping_bar": true,
-    "free_shipping_threshold": 150,
-    "social_instagram": "https://instagram.com/saysostyle",
-    "social_tiktok": "https://tiktok.com/@saysostyle",
-    "social_facebook": "",
-    "social_pinterest": "https://pinterest.com/saysostyle",
-    "social_youtube": "",
-    "predictive_search": true
-  },
+  "current": "Chalk",
   "presets": {
     "Chalk": {
       "logo_width": 140,
@@ -89,6 +42,11 @@
       "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
       "free_shipping_bar": true,
       "free_shipping_threshold": 150,
+      "social_instagram": "",
+      "social_tiktok": "",
+      "social_facebook": "",
+      "social_pinterest": "",
+      "social_youtube": "",
       "predictive_search": true
     },
     "Ink": {
@@ -132,6 +90,11 @@
       "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
       "free_shipping_bar": true,
       "free_shipping_threshold": 150,
+      "social_instagram": "",
+      "social_tiktok": "",
+      "social_facebook": "",
+      "social_pinterest": "",
+      "social_youtube": "",
       "predictive_search": true
     },
     "Sand": {
@@ -175,8 +138,12 @@
       "cart_footer_text": "<p>Shipping and taxes calculated at checkout.</p>",
       "free_shipping_bar": true,
       "free_shipping_threshold": 150,
+      "social_instagram": "",
+      "social_tiktok": "",
+      "social_facebook": "",
+      "social_pinterest": "",
+      "social_youtube": "",
       "predictive_search": true
     }
-  },
-  "platform_customizations": {}
+  }
 }
