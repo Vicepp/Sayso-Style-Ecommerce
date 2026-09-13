@@ -34,7 +34,7 @@
       {%- endif -%}
 
       <div data-reveal="rise" style="width: 100%; display: flex; justify-content: center;">
-        {%- form 'customer', class: 'newsletter-form', id: 'NewsletterForm-' | append: section.id -%}
+        {%- form section.id -%}
           {%- if form.posted_successfully? -%}
             <p class="form__message form__message--success" style="width: 100%; justify-content: center;">
               {% render 'icon', name: 'check' %}
@@ -130,3 +130,14 @@
   "presets": [{ "name": "Newsletter" }]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- form 'customer', class: 'newsletter-form', id: 'NewsletterForm-' | append:
+    section.id -%}"
+  to: "{%- form section.id -%}"
+  position: 1779..1802
+{% endcomment %}
